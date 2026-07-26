@@ -1,9 +1,10 @@
 /**
  * @file static/js/features/workbench.js
- * @description Handles PDF/Media Readers, Tab Switching, Note Taking, HTML Summaries, and Tuto IA.
+ * @description Handles PDF/Media Readers, Tab Switching, Note Taking, HTML Summaries, and Tuto IA with URL decoding.
  * @layer Core Logic / State Persistence
  * @dependencies ../core/state.js, ./qcm_player.js, ./tuto.js
  */
+
 import { State } from '../core/state.js';
 import { fetchQcmHistory } from './qcm_player.js';
 import { initTuto, startTutoSession, stopTutoSession } from './tuto.js';
@@ -41,7 +42,7 @@ export async function openWorkbench(resourceId, filename, safePath, fileType, th
 
     switchWorkbenchTab(targetTab);
 
-    // 🐛 BUG FIX: Reset Resume tab state to Setup View cleanly
+    // Reset Resume tab state to Setup View cleanly
     const resumeSetupView = document.getElementById('resume-setup-view');
     const resumeLoadingView = document.getElementById('resume-loading-view');
     const resumeFrame = document.getElementById('workbench-resume-frame');
@@ -49,23 +50,20 @@ export async function openWorkbench(resourceId, filename, safePath, fileType, th
     if (resumeLoadingView) { resumeLoadingView.classList.remove('flex'); resumeLoadingView.classList.add('hidden'); }
     if (resumeFrame) { resumeFrame.classList.add('hidden'); resumeFrame.srcdoc = ''; }
 
-    // 🐛 BUG FIX: Silent Cache Pre-load Check
+    // Silent Cache Pre-load Check
     fetch(`/api/ai/summarize?resource_id=${resourceId}&check_cache_only=true`)
         .then(res => res.json())
         .then(data => {
             if (data.has_cache && data.html) {
-                // Instantly inject the cached HTML so it's ready when they click the tab!
                 if (resumeSetupView) { resumeSetupView.classList.remove('flex'); resumeSetupView.classList.add('hidden'); }
                 if (resumeFrame) { 
                     resumeFrame.srcdoc = data.html; 
                     resumeFrame.classList.remove('hidden'); 
                 }
             } else if (targetTab === 'resume' && autoTrigger) {
-                // Only trigger the heavy SSE generator if no cache exists AND the user requested it via a shortcut
                 generateWorkbenchResume();
             }
         }).catch(err => console.error("Cache pre-load check failed", err));
-
 
     const qcmContentBox = document.getElementById('workbench-qcm-content');
     if (qcmContentBox) qcmContentBox.innerHTML = ''; 
@@ -81,7 +79,19 @@ export async function openWorkbench(resourceId, filename, safePath, fileType, th
     document.getElementById('workbench-modal-title').innerText = filename || 'Espace de Travail';
     document.getElementById('workbench-file-label').innerText = filename || '';
 
-    const fullUrl = `/source/${safePath}`;
+    // Unquote safePath to cleanly decode encoded colons (%3A) or slashes (%2F)
+    let cleanPath = safePath || '';
+    try {
+        cleanPath = decodeURIComponent(cleanPath);
+    } catch(e) {}
+
+    // Check if cleanPath is an absolute CDN URL
+    const isCdn = cleanPath.startsWith('http://') || 
+                  cleanPath.startsWith('https://') || 
+                  cleanPath.includes('.r2.dev');
+
+    const fullUrl = isCdn ? cleanPath : `/source/${cleanPath}`;
+
     const pdfFrame = document.getElementById('workbench-pdf-frame');
     const videoPlayer = document.getElementById('workbench-video-player');
     const mediaPlaceholder = document.getElementById('workbench-media-placeholder');
@@ -122,7 +132,6 @@ export function switchWorkbenchTab(tabId) {
             btn.classList.add('font-extrabold', 'border-[rgb(2,132,199)]', 'text-[rgb(2,132,199)]');
             btn.classList.remove('font-semibold', 'border-transparent', 'text-[rgb(100,116,139)]');
             
-            // Handle Tuto session activation & context injection using structured JSON
             if (id === 'tuto') {
                 const notes = document.getElementById('workbench-notes-input').value || "Aucune note pour le moment.";
                 const contextData = {
@@ -137,7 +146,6 @@ export function switchWorkbenchTab(tabId) {
             btn.classList.remove('font-extrabold', 'border-[rgb(2,132,199)]', 'text-[rgb(2,132,199)]');
             btn.classList.add('font-semibold', 'border-transparent', 'text-[rgb(100,116,139)]');
             
-            // Gracefully terminate the live connection/mic if navigating away from Tuto tab
             if (id === 'tuto') {
                 stopTutoSession();
             }
@@ -165,11 +173,9 @@ export async function closeWorkbench() {
     const workbenchModal = document.getElementById('workbench-modal');
     if (workbenchModal) { workbenchModal.classList.add('hidden'); workbenchModal.classList.remove('is-fullscreen'); }
     
-    // Explicitly reset UI states so they don't glitch on the next open
     const frame = document.getElementById('workbench-resume-frame');
     if (frame) { frame.srcdoc = ''; frame.classList.add('hidden'); }
     
-    // Ensure Tuto session is fully killed
     stopTutoSession();
 
     document.body.style.overflow = '';

@@ -1,5 +1,5 @@
-# @file scripts/fix_r2_paths.py
-# @description One-time utility to adjust Cloudflare R2 CDN URLs in Neon DB to include the 'PCEM1 2024' directory prefix.
+# @file scripts/force_r2_urls.py
+# @description Overwrites all resource paths in Neon DB with direct Cloudflare R2 CDN URLs.
 # @layer State Persistence
 # @dependencies psycopg2, os, dotenv
 
@@ -7,45 +7,51 @@ import os
 import psycopg2
 from dotenv import load_dotenv
 
+# Load local .env credentials
 load_dotenv()
 
 def main():
     db_url = os.environ.get("DATABASE_URL")
-    r2_url = os.environ.get("R2_PUBLIC_URL", "").rstrip("/")
+    r2_base = "https://pub-e5182687d5224948b616fa86549c708a.r2.dev/PCEM1 2024"
 
-    if not db_url or not r2_url:
-        print("🚨 Error: DATABASE_URL or R2_PUBLIC_URL missing from .env")
+    if not db_url:
+        print("🚨 Error: DATABASE_URL is missing from .env")
         return
 
-    print(f"[🌐] Target CDN Base: {r2_url}")
-    print("[🔄] Injecting 'PCEM1 2024/' prefix into database resource paths...")
+    print("==================================================")
+    print(" ☁️  FORCING NEON DB TO USE CLOUDFLARE R2 CDN URLS")
+    print("==================================================")
+    print(f"[🌐] Target CDN Base: {r2_base}")
+    print("[🔄] Connecting to Neon PostgreSQL...")
 
     try:
         conn = psycopg2.connect(db_url)
         cursor = conn.cursor()
 
-        # Safely insert 'PCEM1 2024/' into R2 URLs if not already present
+        # 1. Clean up any existing http prefix to get raw path (e.g. Semestre_1/...)
         cursor.execute("""
             UPDATE resources 
-            SET relative_path = REPLACE(relative_path, %s, %s)
-            WHERE relative_path LIKE %s AND relative_path NOT LIKE %s;
-        """, (
-            r2_url + "/", 
-            r2_url + "/PCEM1 2024/", 
-            r2_url + "%", 
-            r2_url + "/PCEM1 2024/%"
-        ))
+            SET relative_path = SUBSTRING(relative_path FROM 'Semestre_.*')
+            WHERE relative_path LIKE 'http%%';
+        """)
+
+        # 2. Prepend exact Cloudflare R2 domain and folder prefix
+        cursor.execute("""
+            UPDATE resources 
+            SET relative_path = %s || '/' || relative_path
+            WHERE relative_path NOT LIKE 'http%%';
+        """, (r2_base,))
 
         updated_count = cursor.rowcount
         conn.commit()
         conn.close()
 
         print("==================================================")
-        print(f" ✅ Success! Corrected {updated_count} resource paths in Neon PostgreSQL.")
+        print(f" ✅ SUCCESS! Converted {updated_count} rows in Neon DB to Cloudflare R2 CDN URLs.")
         print("==================================================")
 
     except Exception as e:
-        print(f"❌ Error updating database: {e}")
+        print(f"❌ Error updating Neon DB: {e}")
 
 if __name__ == "__main__":
     main()

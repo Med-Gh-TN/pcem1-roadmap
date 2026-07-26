@@ -1,13 +1,14 @@
-'''
+"""
 @file controllers/gamification_routes.py
 @description Routes for Gamification (Streak, Heatmap, Mastery Agent, Study Logs, Notes).
 @layer HTTP Controllers
-'''
+@dependencies flask, repository.user_data_repo, repository.roadmap_repo, services.mastery_engine, datetime
+"""
 
 from flask import Blueprint, jsonify, request
 from repository import user_data_repo, roadmap_repo
 from services.mastery_engine import evaluate_qcm_mastery
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 gamification_bp = Blueprint('gamification', __name__)
 
@@ -17,6 +18,9 @@ def get_streak_and_heatmap():
     daily_map = {}
     
     for r in daily_rows:
+        log_date_raw = r['log_date']
+        # Convert native datetime.date objects from PostgreSQL to string YYYY-MM-DD
+        log_date_str = log_date_raw.strftime('%Y-%m-%d') if isinstance(log_date_raw, (date, datetime)) else str(log_date_raw)
         sec = r['total_seconds'] or 0
         if sec <= 0: level = 0
         elif sec <= 1800: level = 1
@@ -24,8 +28,8 @@ def get_streak_and_heatmap():
         elif sec <= 10800: level = 3
         else: level = 4
 
-        daily_map[r['log_date']] = {
-            "date": r['log_date'], "count": r['session_count'], 
+        daily_map[log_date_str] = {
+            "date": log_date_str, "count": r['session_count'], 
             "duration_seconds": sec, "hours": round(sec / 3600.0, 2), "level": level
         }
 
