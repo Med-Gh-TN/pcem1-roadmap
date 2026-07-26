@@ -15,13 +15,12 @@ from pathlib import Path
 from collections import Counter
 from typing import Dict, Any
 
-# 🐛 BUG FIX: Dynamically inject the Project Root into Python's path 
-# so this script can be executed standalone from the terminal.
+# Dynamically inject the Project Root into Python's path
 PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-# Now we can safely import from the repository layer
+# Import from repository layer
 from repository import roadmap_repo
 
 # ==========================================
@@ -50,7 +49,6 @@ CONVERSION_TIMEOUT_SEC = 120 # Fault tolerance max execution time
 # ==========================================
 # SOTA CURRICULUM ONTOLOGY & MATHEMATICAL WEIGHTS
 # ==========================================
-# Mapped exactly to FMT PCEM1 Curriculum requirements
 CURRICULUM_MATRIX = {
     "THEME 1: SANTE, POPULATION & SH": {"coeff": 20, "session": "Janvier", "hours": 30, "subjects": {"Formation médicale": 6, "Santé population": 6, "Ethique médicale": 6, "Histoire de la médecine": 2, "Sciences humaines": 6, "Communication": 4}},
     "THEME 2A: LA CELLULE (Biologie)": {"coeff": 30, "session": "Janvier", "hours": 40, "subjects": {"Biologie cellulaire": 32, "Biochimie structurale": 8}},
@@ -68,11 +66,7 @@ CURRICULUM_MATRIX = {
     "ANGLAIS MEDICAL": {"coeff": 20, "session": "Juin", "hours": 26, "subjects": {"Anglais": 26}},
 }
 
-# ==========================================
-# UTILITIES & BINARY DETECTION
-# ==========================================
 def normalize_for_inference(text: str) -> str:
-    """Removes accents, underscores, and special chars strictly for regex matching."""
     if not text: return ""
     text = text.replace('_', ' ').replace('-', ' ')
     nfkd_form = unicodedata.normalize('NFKD', text)
@@ -99,7 +93,6 @@ def normalize_slug(text: str, is_file: bool = False) -> str:
     return ascii_text
 
 def get_converter_binary() -> tuple[str, str]:
-    """Detects LibreOffice binary for transmutation."""
     for cmd in ['libreoffice', 'soffice', 'openoffice', 'soffice.exe', 'libreoffice.exe']:
         p = shutil.which(cmd)
         if not p and os.name == 'nt':
@@ -109,9 +102,6 @@ def get_converter_binary() -> tuple[str, str]:
         if p: return ("libreoffice", p)
     return (None, None)
 
-# ==========================================
-# SOTA TAXONOMY INFERENCE ENGINE
-# ==========================================
 def infer_taxonomy(rel_path_str: str, raw_filename: str) -> Dict[str, Any]:
     clean_path = normalize_for_inference(rel_path_str)
     clean_file = normalize_for_inference(raw_filename)
@@ -205,9 +195,6 @@ def infer_taxonomy(rel_path_str: str, raw_filename: str) -> Dict[str, Any]:
         "entropy_score": round(entropy, 2)
     }
 
-# ==========================================
-# PHASE 2: TRANSMUTATION ENGINE
-# ==========================================
 def transmute_legacy_files(files_to_convert: list) -> dict:
     engine, exe_path = get_converter_binary()
     if not engine:
@@ -240,15 +227,13 @@ def transmute_legacy_files(files_to_convert: list) -> dict:
             
     return metrics
 
-# ==========================================
-# MASTER PIPELINE (Crawling & DB Sync)
-# ==========================================
 def execute_curriculum_scan(run_transmutation: bool = False):
+    # Guard clause: Never attempt local disk crawl on Cloud host (Render) or when source folder is missing
+    if os.environ.get('RENDER') or not SOURCE_DIR.exists():
+        print("ℹ️ [CLOUD ENV DETECTED] Local source directory absent. Bypassing disk scan.")
+        return {"status": "SKIPPED"}
+
     print(f"\n{'='*60}\n🚀 [PHASE 1] DEEP TOPOLOGICAL CRAWL INITIATED\n{'='*60}")
-    
-    if not SOURCE_DIR.exists():
-        print(f"❌ ERROR: Source directory '{SOURCE_DIR}' does not exist.")
-        return {"status": "ERROR"}
 
     start_time = time.time()
     resources = []
@@ -293,7 +278,6 @@ def execute_curriculum_scan(run_transmutation: bool = False):
             return execute_curriculum_scan(run_transmutation=False)
 
     print(f"\n🚀 [PHASE 3] DATABASE RECONCILIATION VIA REPOSITORY")
-    # Delegate direct DB interaction to Repository
     deleted_count = roadmap_repo.sync_scanned_resources(resources, valid_paths)
     
     elapsed = round(time.time() - start_time, 2)
