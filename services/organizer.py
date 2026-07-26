@@ -1,6 +1,6 @@
 """
  * @file organizer.py
- * @description State-of-the-Art (SOTA) Ontology-Driven Inference Engine & Curriculum Crawler.
+ * @description State-of-the-Art (SOTA) Ontology-Driven Inference Engine & Curriculum Crawler (R2 CDN Aware).
  * @layer Core Logic / Data Ingestion
 """
 
@@ -228,12 +228,15 @@ def transmute_legacy_files(files_to_convert: list) -> dict:
     return metrics
 
 def execute_curriculum_scan(run_transmutation: bool = False):
-    # Guard clause: Never attempt local disk crawl on Cloud host (Render) or when source folder is missing
+    # Guard clause: Never run scan on Cloud host (Render) or when source directory is absent
     if os.environ.get('RENDER') or not SOURCE_DIR.exists():
         print("ℹ️ [CLOUD ENV DETECTED] Local source directory absent. Bypassing disk scan.")
         return {"status": "SKIPPED"}
 
     print(f"\n{'='*60}\n🚀 [PHASE 1] DEEP TOPOLOGICAL CRAWL INITIATED\n{'='*60}")
+
+    # Fetch Cloudflare R2 CDN base URL from environment
+    r2_base_url = os.environ.get("R2_PUBLIC_URL", "").rstrip("/")
 
     start_time = time.time()
     resources = []
@@ -255,18 +258,24 @@ def execute_curriculum_scan(run_transmutation: bool = False):
             if file_size == 0: continue 
             if file_type in LEGACY_FORMATS: legacy_files.append(file_path)
 
-            try: rel_path = str(file_path.relative_to(SOURCE_DIR)).replace('\\', '/')
+            try: raw_rel_path = str(file_path.relative_to(SOURCE_DIR)).replace('\\', '/')
             except ValueError: continue
+
+            # Construct Cloudflare R2 CDN URL if R2_PUBLIC_URL is set in .env
+            if r2_base_url:
+                db_path = f"{r2_base_url}/PCEM1 2024/{raw_rel_path}"
+            else:
+                db_path = raw_rel_path
                 
-            tax = infer_taxonomy(rel_path, file_name)
+            tax = infer_taxonomy(raw_rel_path, file_name)
             clean_ext = file_type.replace('.', '')
-            valid_paths.add(rel_path)
+            valid_paths.add(db_path)
             metrics["total_files"] += 1
             metrics["extensions"][clean_ext] += 1
             
             resources.append((
                 tax['semester'], tax['theme'], tax['section'], tax['subject'], tax['doc_type'],
-                file_name, rel_path, clean_ext,
+                file_name, db_path, clean_ext,
                 tax['is_high_yield'], tax['is_annale'], file_size, tax['curriculum_weight'], tax['entropy_score']
             ))
             
