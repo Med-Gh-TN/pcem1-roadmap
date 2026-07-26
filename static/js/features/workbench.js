@@ -1,6 +1,6 @@
 /**
  * @file static/js/features/workbench.js
- * @description Handles PDF/Media Readers, Tab Switching, Note Taking, HTML Summaries, and Tuto IA with URL decoding and R2 priority.
+ * @description Handles PDF/Media Readers, Tab Switching, Note Taking, HTML Summaries, Tuto IA, and Instant Optimistic UI Updates.
  * @layer Core Logic / State Persistence
  * @dependencies ../core/state.js, ./qcm_player.js, ./tuto.js
  */
@@ -20,7 +20,6 @@ export async function triggerPdfConversion(resourceId) {
         if (result.success && result.cached_url) {
             const r = State.getResourceById(resourceId);
             if (r) { r.has_pdf_cache = 1; r.pdf_cache_path = result.cached_url.split('/').pop().split('?')[0]; }
-            if(window.appEngine) window.appEngine.fetchAndRenderRoadmap();
             document.getElementById('workbench-media-placeholder').classList.add('hidden');
             document.getElementById('workbench-pdf-frame').src = `${result.cached_url}?t=${Date.now()}`;
             document.getElementById('workbench-pdf-frame').classList.remove('hidden');
@@ -37,12 +36,9 @@ export async function openWorkbench(resourceId, filename, safePath, fileType, th
     State.currentWorkbenchTheme = theme || 'Général';
     State.workbenchStartTime = Date.now();
 
-    // Initialize Tuto DOM bindings
     initTuto();
-
     switchWorkbenchTab(targetTab);
 
-    // Reset Resume tab state to Setup View cleanly
     const resumeSetupView = document.getElementById('resume-setup-view');
     const resumeLoadingView = document.getElementById('resume-loading-view');
     const resumeFrame = document.getElementById('workbench-resume-frame');
@@ -79,18 +75,16 @@ export async function openWorkbench(resourceId, filename, safePath, fileType, th
     document.getElementById('workbench-modal-title').innerText = filename || 'Espace de Travail';
     document.getElementById('workbench-file-label').innerText = filename || '';
 
-    // 1. Unquote safePath to cleanly decode encoded colons (%3A) or slashes (%2F)
+    // Unquote safePath to cleanly decode encoded colons (%3A) or slashes (%2F)
     let cleanPath = safePath || '';
     try {
         cleanPath = decodeURIComponent(cleanPath);
     } catch(e) {}
 
-    // 2. Check if cleanPath is an absolute Cloudflare R2 CDN URL
     const isCdn = cleanPath.startsWith('http://') || 
                   cleanPath.startsWith('https://') || 
                   cleanPath.includes('.r2.dev');
 
-    // 3. Format full URL and ensure spaces are percent-encoded (%20) for iframe compatibility
     let fullUrl = isCdn ? cleanPath : `/source/${cleanPath}`;
     if (isCdn) {
         fullUrl = fullUrl.replace(/ /g, '%20');
@@ -104,7 +98,6 @@ export async function openWorkbench(resourceId, filename, safePath, fileType, th
 
     const ext = (fileType || '').toLowerCase();
 
-    // 🐛 CRITICAL FIX: Prioritize R2 CDN streaming over stale local /cache/ files
     if (isCdn && ext === 'pdf') {
         pdfFrame.src = fullUrl; 
         pdfFrame.classList.remove('hidden');
@@ -120,6 +113,13 @@ export async function openWorkbench(resourceId, filename, safePath, fileType, th
         videoPlayer.classList.remove('hidden');
     } else {
         mediaPlaceholder.classList.remove('hidden');
+    }
+
+    // Set active status button UI state immediately
+    if (freshestData) {
+        document.querySelectorAll('.workbench-status-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-status') === freshestData.status);
+        });
     }
 
     try {
@@ -191,7 +191,8 @@ export async function closeWorkbench() {
     stopTutoSession();
 
     document.body.style.overflow = '';
-    if(window.appEngine) await window.appEngine.fetchAndRenderRoadmap();
+    // Background refresh when closing workbench so dashboard updates naturally
+    if(window.appEngine) window.appEngine.fetchAndRenderRoadmap();
 }
 
 export function handleNotesInput() {
@@ -203,13 +204,28 @@ export function handleNotesInput() {
     }, 800);
 }
 
+/**
+ * ⚡ OPTIMISTIC UI UPDATE:
+ * Updates the local DOM node instantly (<10ms) while persisting changes to Neon DB in the background.
+ */
 export async function setWorkbenchMastery(status) {
     if (!State.currentWorkbenchResourceId) return;
-    await API.updateProgress(State.currentWorkbenchResourceId, status);
+    
+    // 1. INSTANT UI UPDATE (<10ms)
     document.querySelectorAll('.workbench-status-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-status') === status);
     });
-    if(window.appEngine) await window.appEngine.fetchAndRenderRoadmap();
+
+    // 2. Update local state cache
+    const r = State.getResourceById(State.currentWorkbenchResourceId);
+    if (r) { r.status = status; }
+
+    // 3. Persist to Neon DB asynchronously in background (Non-blocking)
+    try {
+        await API.updateProgress(State.currentWorkbenchResourceId, status);
+    } catch(err) {
+        console.error("Background progress update failed:", err);
+    }
 }
 
 export function generateWorkbenchResume() {
