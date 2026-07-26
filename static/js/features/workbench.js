@@ -1,6 +1,6 @@
 /**
  * @file static/js/features/workbench.js
- * @description Handles PDF/Media Readers, Tab Switching, Note Taking, HTML Summaries, and Tuto IA with URL decoding.
+ * @description Handles PDF/Media Readers, Tab Switching, Note Taking, HTML Summaries, and Tuto IA with URL decoding and R2 priority.
  * @layer Core Logic / State Persistence
  * @dependencies ../core/state.js, ./qcm_player.js, ./tuto.js
  */
@@ -79,18 +79,22 @@ export async function openWorkbench(resourceId, filename, safePath, fileType, th
     document.getElementById('workbench-modal-title').innerText = filename || 'Espace de Travail';
     document.getElementById('workbench-file-label').innerText = filename || '';
 
-    // Unquote safePath to cleanly decode encoded colons (%3A) or slashes (%2F)
+    // 1. Unquote safePath to cleanly decode encoded colons (%3A) or slashes (%2F)
     let cleanPath = safePath || '';
     try {
         cleanPath = decodeURIComponent(cleanPath);
     } catch(e) {}
 
-    // Check if cleanPath is an absolute CDN URL
+    // 2. Check if cleanPath is an absolute Cloudflare R2 CDN URL
     const isCdn = cleanPath.startsWith('http://') || 
                   cleanPath.startsWith('https://') || 
                   cleanPath.includes('.r2.dev');
 
-    const fullUrl = isCdn ? cleanPath : `/source/${cleanPath}`;
+    // 3. Format full URL and ensure spaces are percent-encoded (%20) for iframe compatibility
+    let fullUrl = isCdn ? cleanPath : `/source/${cleanPath}`;
+    if (isCdn) {
+        fullUrl = fullUrl.replace(/ /g, '%20');
+    }
 
     const pdfFrame = document.getElementById('workbench-pdf-frame');
     const videoPlayer = document.getElementById('workbench-video-player');
@@ -99,13 +103,21 @@ export async function openWorkbench(resourceId, filename, safePath, fileType, th
     [pdfFrame, videoPlayer, mediaPlaceholder].forEach(el => { if (el) el.classList.add('hidden'); });
 
     const ext = (fileType || '').toLowerCase();
-    if (hasPdfCache === 1 && pdfCachePath) {
-        pdfFrame.src = `/cache/${pdfCachePath}`; pdfFrame.classList.remove('hidden');
+
+    // 🐛 CRITICAL FIX: Prioritize R2 CDN streaming over stale local /cache/ files
+    if (isCdn && ext === 'pdf') {
+        pdfFrame.src = fullUrl; 
+        pdfFrame.classList.remove('hidden');
+    } else if (hasPdfCache === 1 && pdfCachePath && !isCdn) {
+        pdfFrame.src = `/cache/${pdfCachePath}`; 
+        pdfFrame.classList.remove('hidden');
     } else if (ext === 'pdf') {
-        pdfFrame.src = fullUrl; pdfFrame.classList.remove('hidden');
+        pdfFrame.src = fullUrl; 
+        pdfFrame.classList.remove('hidden');
     } else if (['mp4', 'webm', 'ogg', 'mov', 'mkv'].includes(ext)) {
         document.getElementById('workbench-video-source').src = fullUrl;
-        videoPlayer.load(); videoPlayer.classList.remove('hidden');
+        videoPlayer.load(); 
+        videoPlayer.classList.remove('hidden');
     } else {
         mediaPlaceholder.classList.remove('hidden');
     }
