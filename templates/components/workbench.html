@@ -1,0 +1,219 @@
+<!-- Built-in PDF/Video Expanded Split-Screen Workbench Modal Container -->
+<div id="workbench-modal" role="dialog" aria-modal="true" class="fixed inset-0 bg-[rgba(15,23,42,0.65)] z-50 backdrop-blur-md hidden flex items-center justify-center p-1 sm:p-2.5 transition-all">
+    <div id="workbench-modal-panel" class="glass-panel border border-[rgba(15,23,42,0.12)] rounded-2xl sm:rounded-3xl w-full max-w-[99vw] h-[97vh] flex flex-col shadow-2xl overflow-hidden bg-white transition-all">
+        
+        <div class="px-5 py-2.5 border-b border-[rgba(15,23,42,0.08)] flex justify-between items-center bg-[rgb(248,250,252)] shrink-0">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-[rgb(2,132,199)] text-white flex items-center justify-center font-bold text-sm">📖</div>
+                <div>
+                    <h3 id="workbench-modal-title" class="text-base font-bold text-[rgb(15,23,42)] tracking-tight truncate max-w-md">Espace de Travail Scindé</h3>
+                    <p id="workbench-modal-subtitle" class="text-[11px] text-[rgb(100,116,139)] font-medium">Lecteur Médical & Notes de Cours Synchro</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="text-xs px-3 py-1 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 font-semibold flex items-center gap-1.5">
+                    <span>⏱️ Temps sur ce thème cette semaine:</span>
+                    <strong id="workbench-theme-time" class="font-mono">0.0h</strong>
+                </div>
+                <button id="btn-workbench-fullscreen" onclick="toggleWorkbenchFullscreen()" title="Plein Écran Maximisé" class="w-8 h-8 rounded-xl bg-white hover:bg-[rgb(241,245,249)] border border-[rgba(15,23,42,0.12)] text-[rgb(71,85,105)] hover:text-[rgb(15,23,42)] flex items-center justify-center font-bold text-sm transition-all shadow-sm">⛶</button>
+                <button onclick="closeWorkbench()" title="Fermer" class="w-8 h-8 rounded-xl bg-white hover:bg-[rgb(241,245,249)] border border-[rgba(15,23,42,0.12)] text-[rgb(71,85,105)] flex items-center justify-center font-bold text-base transition-all shadow-sm">&times;</button>
+            </div>
+        </div>
+
+        <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden min-h-0">
+            
+            <!-- Left: Media Player -->
+            <div class="lg:col-span-8 bg-slate-900 flex flex-col border-r border-[rgba(15,23,42,0.1)] relative overflow-hidden min-h-0">
+                <div class="p-2 bg-slate-800 border-b border-slate-700 flex justify-between items-center text-xs shrink-0">
+                    <span id="workbench-file-label" class="text-slate-300 font-mono truncate max-w-lg px-2">Document.pdf</span>
+                    <span id="media-type-badge" class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-mono text-[11px]">PDF Reader</span>
+                </div>
+                <div class="flex-1 w-full h-full relative bg-slate-950 flex items-center justify-center min-h-0">
+                    <iframe id="workbench-pdf-frame" class="w-full h-full border-0 hidden"></iframe>
+                    <video id="workbench-video-player" class="w-full max-h-full hidden" controls><source id="workbench-video-source" src="" type="video/mp4"></video>
+                    <div id="workbench-media-placeholder" class="text-center p-8 text-slate-400 hidden">
+                        <span class="text-4xl block mb-2">📄</span>
+                        <p class="text-sm">Sélectionnez une ressource pour charger le lecteur scindé.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Interactive Tabs Container -->
+            <div class="lg:col-span-4 bg-white flex flex-col p-4 overflow-hidden min-h-0">
+                <div class="flex border-b border-[rgba(15,23,42,0.08)] mb-3 shrink-0">
+                    <button onclick="switchWorkbenchTab('notes')" id="tab-btn-notes" class="flex-1 py-2.5 text-xs font-extrabold border-b-2 border-[rgb(2,132,199)] text-[rgb(2,132,199)] transition-colors">📝 Notes</button>
+                    <button onclick="switchWorkbenchTab('tuto')" id="tab-btn-tuto" class="flex-1 py-2.5 text-xs font-semibold border-b-2 border-transparent text-[rgb(100,116,139)] hover:text-[rgb(15,23,42)] transition-colors">🤖 Tuto IA</button>
+                    <button onclick="switchWorkbenchTab('resume')" id="tab-btn-resume" class="flex-1 py-2.5 text-xs font-semibold border-b-2 border-transparent text-[rgb(100,116,139)] hover:text-[rgb(15,23,42)] transition-colors">✨ Résumé IA</button>
+                    <button onclick="switchWorkbenchTab('qcm')" id="tab-btn-qcm" class="flex-1 py-2.5 text-xs font-semibold border-b-2 border-transparent text-[rgb(100,116,139)] hover:text-[rgb(15,23,42)] transition-colors">🎯 QCMs</button>
+                </div>
+
+                <!-- Tab 1: Notes -->
+                <div id="workbench-tab-notes" class="flex-1 flex flex-col space-y-3.5 overflow-y-auto min-h-0">
+                    <div class="flex justify-between items-center shrink-0">
+                        <span class="text-xs font-semibold text-[rgb(71,85,105)]">Statut de Maîtrise (4 États):</span>
+                        <span id="notes-save-status" class="text-[10px] font-bold text-emerald-600 transition-opacity opacity-0 px-2 py-0.5 bg-emerald-50 rounded-md border border-emerald-200">✓ Sauvegardé</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-1.5 shrink-0" id="workbench-status-buttons">
+                        <button onclick="setWorkbenchMastery('not_started')" data-status="not_started" class="workbench-status-btn px-2.5 py-1.5 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1 bg-slate-100 text-slate-700">⏳ Non commencé</button>
+                        <button onclick="setWorkbenchMastery('in_progress')" data-status="in_progress" class="workbench-status-btn px-2.5 py-1.5 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1 bg-amber-50 text-amber-700 border-amber-200">🟡 En cours</button>
+                        <button onclick="setWorkbenchMastery('mastered')" data-status="mastered" class="workbench-status-btn px-2.5 py-1.5 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1 bg-emerald-50 text-emerald-700 border-emerald-200">✅ Maîtrisé</button>
+                        <button onclick="setWorkbenchMastery('needs_revision')" data-status="needs_revision" class="workbench-status-btn px-2.5 py-1.5 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1 bg-rose-50 text-rose-700 border-rose-200">🔄 À réviser</button>
+                    </div>
+                    <div class="flex-1 flex flex-col space-y-1.5 mt-2 min-h-0">
+                        <textarea id="workbench-notes-input" oninput="handleNotesInput()" placeholder="Rédigez vos mnémoniques..." class="w-full flex-1 min-h-[200px] p-3 text-xs bg-slate-50 border border-slate-200 focus:border-[rgb(2,132,199)] rounded-xl focus:outline-none resize-none font-mono leading-relaxed transition-all"></textarea>
+                    </div>
+                </div>
+
+                <!-- Tab 1.5: Tuto IA (Apple-Inspired SOTA Interface) -->
+                <div id="workbench-tab-tuto" class="hidden flex-1 flex flex-col relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-50/90 to-slate-100/60 border border-slate-200/80 shadow-sm min-h-0">
+                    <style>
+                        @keyframes eq-pulse {
+                            0%, 100% { height: 4px; }
+                            50% { height: 14px; }
+                        }
+                        .apple-scrollbar::-webkit-scrollbar { width: 5px; }
+                        .apple-scrollbar::-webkit-scrollbar-track { background: transparent; }
+                        .apple-scrollbar::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.35); border-radius: 9999px; }
+                        .apple-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.6); }
+                    </style>
+                    
+                    <!-- Frosted Top Navigation & Status Pill -->
+                    <div class="flex justify-between items-center px-4 py-2.5 bg-white/70 backdrop-blur-md border-b border-slate-200/60 z-10 shrink-0">
+                        <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-[rgb(2,132,199)] to-indigo-500 flex items-center justify-center text-white text-[11px] font-bold shadow-xs">✨</div>
+                            <div>
+                                <h4 class="text-slate-900 font-bold text-xs tracking-tight">Tuteur Médical IA</h4>
+                                <p class="text-[10px] text-slate-500 font-medium">Assistant Vocal & Interactif</p>
+                            </div>
+                        </div>
+                        <div id="tuto-status-badge" class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/80 transition-all shadow-2xs">
+                            <span id="status-dot" class="w-2 h-2 rounded-full bg-slate-400 transition-colors"></span>
+                            <span id="status-text" class="text-[10px] font-bold text-slate-600 tracking-wide">Hors ligne</span>
+                        </div>
+                    </div>
+
+                    <!-- Apple Interactive Pedagogical Action Chips -->
+                    <div class="px-3.5 py-2 bg-slate-100/60 border-b border-slate-200/50 flex items-center gap-1.5 overflow-x-auto apple-scrollbar shrink-0">
+                        <button onclick="window.sendTutoQuickPrompt('Explique-moi le concept principal en termes simples.')" class="px-2.5 py-1 rounded-full bg-white hover:bg-sky-50 border border-slate-200/80 hover:border-sky-300 text-slate-700 hover:text-sky-700 text-[10px] font-semibold whitespace-nowrap transition-all shadow-2xs active:scale-95 flex items-center gap-1">
+                            💡 Expliquer simplement
+                        </button>
+                        <button onclick="window.sendTutoQuickPrompt('Donne-moi un exemple clinique concret lié à ce cours.')" class="px-2.5 py-1 rounded-full bg-white hover:bg-indigo-50 border border-slate-200/80 hover:border-indigo-300 text-slate-700 hover:text-indigo-700 text-[10px] font-semibold whitespace-nowrap transition-all shadow-2xs active:scale-95 flex items-center gap-1">
+                            🧪 Exemple clinique
+                        </button>
+                        <button onclick="window.sendTutoQuickPrompt('Pose-moi une question pour vérifier ma compréhension.')" class="px-2.5 py-1 rounded-full bg-white hover:bg-emerald-50 border border-slate-200/80 hover:border-emerald-300 text-slate-700 hover:text-emerald-700 text-[10px] font-semibold whitespace-nowrap transition-all shadow-2xs active:scale-95 flex items-center gap-1">
+                            ❓ Tester mes connaissances
+                        </button>
+                        <button onclick="window.sendTutoQuickPrompt('فسرلي بالدارجة النقطة المهمة فالموضوع هضا.')" class="px-2.5 py-1 rounded-full bg-white hover:bg-amber-50 border border-slate-200/80 hover:border-amber-300 text-slate-700 hover:text-amber-800 text-[10px] font-bold whitespace-nowrap transition-all shadow-2xs active:scale-95 flex items-center gap-1">
+                            🇹🇳 Explicat en Derja
+                        </button>
+                    </div>
+
+                    <!-- Scrollable Transcript Engine (min-h-0 Fixes Top-Clipping) -->
+                    <div class="flex-1 relative overflow-hidden flex flex-col min-h-0">
+                        <div id="chat-container" class="flex-1 overflow-y-auto apple-scrollbar p-3.5 flex flex-col gap-3.5 scroll-smooth min-h-0">
+                            <!-- Dynamically populated conversation bubbles -->
+                        </div>
+
+                        <!-- Floating Apple-Style 'Scroll to Bottom' Indicator -->
+                        <button id="scroll-bottom-btn" onclick="window.forceTutoScrollBottom()" class="hidden absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-slate-900/85 hover:bg-slate-900 text-white backdrop-blur-md text-[10px] font-bold px-3.5 py-1.5 rounded-full shadow-lg border border-slate-700/50 items-center gap-1.5 transition-all animate-bounce z-20">
+                            <span>↓ Nouveaux messages</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Bottom Control Center -->
+                    <div class="shrink-0 p-3 bg-white/80 backdrop-blur-md border-t border-slate-200/80 flex flex-col gap-2 z-10">
+                        <!-- Live Voice Toggle Button -->
+                        <button id="connect-btn" class="w-full h-10 rounded-xl bg-gradient-to-r from-[rgb(2,132,199)] to-indigo-600 hover:opacity-95 flex items-center justify-between px-4 text-white font-bold text-xs shadow-md shadow-sky-500/10 transition-all active:scale-[0.99]">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center backdrop-blur-md">
+                                    <svg class="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
+                                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+                                    </svg>
+                                </div>
+                                <span class="tracking-wide">Rejoindre la discussion vocale</span>
+                            </div>
+                            <div id="eq-bars" class="items-center gap-[2.5px] h-3.5 hidden">
+                                <span class="w-[2.5px] h-1.5 bg-white/80 rounded-full animate-[eq-pulse_1.2s_ease-in-out_infinite]"></span>
+                                <span class="w-[2.5px] h-3.5 bg-white rounded-full animate-[eq-pulse_0.8s_ease-in-out_infinite]"></span>
+                                <span class="w-[2.5px] h-2 bg-white/80 rounded-full animate-[eq-pulse_1.0s_ease-in-out_infinite]"></span>
+                                <span class="w-[2.5px] h-2.5 bg-white/90 rounded-full animate-[eq-pulse_0.9s_ease-in-out_infinite]"></span>
+                            </div>
+                        </button>
+
+                        <!-- Input Field -->
+                        <div class="relative w-full">
+                            <input type="text" id="text-input" class="w-full bg-slate-50 border border-slate-200/90 rounded-xl h-9.5 pl-3.5 pr-10 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[rgb(2,132,199)] focus:bg-white focus:ring-2 focus:ring-sky-100 transition-all shadow-2xs" placeholder="Posez une question sur ce document..." disabled>
+                            <button id="send-btn" class="absolute right-1 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-[rgb(2,132,199)] transition-colors w-8 h-8 flex items-center justify-center disabled:opacity-30" disabled>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Résumé HTML -->
+                <div id="workbench-tab-resume" class="hidden flex-1 flex flex-col relative overflow-hidden pb-2 min-h-0">
+                    <div id="resume-setup-view" class="flex flex-col items-center justify-center h-full text-center space-y-4 p-4">
+                        <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-500 border border-blue-100 flex items-center justify-center text-3xl shadow-inner mb-2">✨</div>
+                        <h4 class="font-extrabold text-[rgb(15,23,42)] text-base">Fiche de Révision IA</h4>
+                        <button onclick="generateWorkbenchResume()" class="mt-4 px-6 py-2.5 bg-[rgb(2,132,199)] hover:bg-[rgb(3,105,161)] text-white rounded-xl text-xs font-bold shadow-md transition-all w-full max-w-[200px]">Générer / Charger</button>
+                    </div>
+                    <div id="resume-loading-view" class="hidden flex-col items-center justify-center h-full text-center space-y-4">
+                        <span class="w-8 h-8 rounded-full bg-[rgb(2,132,199)] ai-pulse mx-auto"></span>
+                        <p id="resume-loading-text" class="text-xs text-[rgb(2,132,199)] font-bold">Analyse du document...</p>
+                        <p id="resume-loading-eta" class="text-[10px] text-slate-500 font-mono">~15s</p>
+                    </div>
+                    <iframe id="workbench-resume-frame" class="hidden w-full h-full border border-[rgba(15,23,42,0.1)] rounded-xl bg-white shadow-inner flex-1"></iframe>
+                </div>
+
+                <!-- Tab 3: QCM Gamified Player -->
+                <div id="workbench-tab-qcm" class="hidden flex-1 flex flex-col relative overflow-hidden pb-2 min-h-0">
+                    <div id="qcm-setup-view" class="flex flex-col items-center justify-start h-full text-center space-y-4 p-4 overflow-y-auto">
+                        <div class="w-16 h-16 rounded-2xl bg-purple-50 text-purple-500 border border-purple-100 flex items-center justify-center text-3xl shadow-inner mb-2 shrink-0">🎯</div>
+                        <h4 class="font-extrabold text-[rgb(15,23,42)] text-base">Quiz Interactif IA</h4>
+                        
+                        <div class="w-full max-w-sm space-y-3 text-left bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm mt-2">
+                            <div>
+                                <label class="text-xs font-bold text-slate-700">Nombre de questions:</label>
+                                <select id="qcm-config-count" class="w-full mt-1 p-2 rounded-lg text-xs border border-slate-300 outline-none font-semibold">
+                                    <option value="10" selected>10 Questions</option>
+                                    <option value="20">20 Questions</option>
+                                    <option value="30">30 Questions</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-slate-700">Difficulté:</label>
+                                <select id="qcm-config-difficulty" class="w-full mt-1 p-2 rounded-lg text-xs border border-slate-300 outline-none font-semibold">
+                                    <option value="Facile">Facile</option>
+                                    <option value="Moyen" selected>Moyen</option>
+                                    <option value="Difficile">Difficile</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-slate-700">Options (A à H):</label>
+                                <input type="range" id="qcm-config-options" min="4" max="8" value="4" class="w-full mt-2" oninput="document.getElementById('qcm-opt-val').innerText = this.value">
+                                <div class="text-right text-[10px] font-bold text-purple-600 mt-1"><span id="qcm-opt-val">4</span> Choix dynamiques</div>
+                            </div>
+                        </div>
+                        <button onclick="generateWorkbenchQCM()" class="mt-2 px-6 py-3 bg-purple-600 text-white rounded-xl text-xs font-extrabold w-full max-w-sm">Générer le Quiz & Évaluer</button>
+                        
+                        <div class="w-full max-w-sm mt-4 pt-4 border-t border-slate-200 text-left">
+                            <h5 class="text-xs font-bold text-slate-700 mb-2">📈 Historique de Maîtrise:</h5>
+                            <div id="qcm-history-list" class="space-y-2 max-h-32 overflow-y-auto pr-1"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="qcm-loading-view" class="hidden flex-col items-center justify-center h-full text-center space-y-4">
+                        <span class="w-8 h-8 rounded-full bg-purple-500 ai-pulse mx-auto"></span>
+                        <p id="qcm-loading-text" class="text-xs text-purple-600 font-bold">Création du Quiz...</p>
+                        <p id="qcm-loading-eta" class="text-[10px] text-slate-500 font-mono">~8s</p>
+                    </div>
+                    
+                    <div id="workbench-qcm-content" class="hidden flex-1 flex-col space-y-4 overflow-y-auto pr-2 pb-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

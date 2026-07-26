@@ -1,0 +1,37 @@
+<!-- Generic Directory Modal -->
+<div id="modal" role="dialog" class="fixed inset-0 bg-[rgba(15,23,42,0.5)] z-50 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6">
+    <div class="glass-panel border border-[rgba(15,23,42,0.12)] rounded-3xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden modal-animate bg-white">
+        <div class="p-6 border-b border-[rgba(15,23,42,0.08)] flex justify-between items-start bg-[rgb(248,250,252)]">
+            <div>
+                <h3 id="modal-title" class="text-2xl font-extrabold text-[rgb(15,23,42)] tracking-tight"></h3>
+                <p id="modal-subtitle" class="text-xs text-[rgb(100,116,139)] mt-1 font-semibold"></p>
+            </div>
+            <button onclick="closeModal()" class="w-9 h-9 rounded-xl bg-white hover:bg-[rgb(241,245,249)] border border-[rgba(15,23,42,0.12)] text-[rgb(71,85,105)] flex items-center justify-center font-bold text-lg shadow-sm">&times;</button>
+        </div>
+        <div id="modal-content" class="p-6 overflow-y-auto space-y-6"></div>
+    </div>
+</div>
+
+<!-- AI Explainer & Legacy Global QCM Modal -->
+<div id="ai-modal" role="dialog" class="fixed inset-0 bg-[rgba(15,23,42,0.6)] z-50 backdrop-blur-md hidden flex items-center justify-center p-4 sm:p-6">
+    <div class="glass-panel border border-[rgba(2,132,199,0.3)] rounded-3xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden modal-animate bg-white">
+        <div class="p-6 border-b border-[rgba(15,23,42,0.08)] flex justify-between items-start bg-[rgba(2,132,199,0.05)]">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-[rgb(2,132,199)] text-white flex items-center justify-center text-lg font-bold">🤖</div>
+                <div>
+                    <h3 id="ai-modal-title" class="text-xl font-extrabold text-[rgb(15,23,42)] tracking-tight">Assistant IA Médical FMT</h3>
+                    <p class="text-xs text-[rgb(100,116,139)] font-medium">Génération TOON & Modèles Google Gemini</p>
+                </div>
+            </div>
+            <button onclick="closeAiModal()" class="w-9 h-9 rounded-xl bg-white hover:bg-[rgb(241,245,249)] border border-[rgba(15,23,42,0.12)] text-[rgb(71,85,105)] flex items-center justify-center font-bold text-lg shadow-sm">&times;</button>
+        </div>
+        <div id="ai-status-box" class="px-6 py-3 bg-[rgba(2,132,199,0.08)] border-b border-[rgba(2,132,199,0.15)] flex justify-between items-center hidden">
+            <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-[rgb(2,132,199)] ai-pulse"></span>
+                <span id="ai-status-message" class="text-xs font-semibold text-[rgb(2,132,199)]">Génération en cours...</span>
+            </div>
+            <span id="ai-status-eta" class="text-[11px] font-mono font-bold text-[rgb(100,116,139)]">Temps estimé: ~8s</span>
+        </div>
+        <div id="ai-modal-content" class="p-6 overflow-y-auto space-y-6"></div>
+    </div>
+</div>

@@ -1,0 +1,316 @@
+/**
+ * @file static/css/style.css
+ * @description Apple HIG + Material 3 Light Theme design tokens using pure RGB color definitions with Universal Multi-Format Workbench, Fullscreen Reader, and Module 5 Heatmap styles.
+ * @layer Core Logic / UI Presentation
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* Base Font & Light Mode Theme Token System */
+:root {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color-scheme: light;
+
+    /* Primary RGB Palette Tokens */
+    --color-bg-primary: rgb(248, 250, 252);        /* Off-white canvas */
+    --color-bg-surface: rgb(255, 255, 255);        /* Pure white cards */
+    --color-text-primary: rgb(15, 23, 42);          /* Deep Charcoal Black */
+    --color-text-secondary: rgb(71, 85, 105);      /* Muted Slate Gray */
+    --color-border-subtle: rgba(15, 23, 42, 0.08);  /* Subtle black divider */
+    --color-border-strong: rgba(15, 23, 42, 0.16);
+
+    /* Functional RGB State Accents (4-State Ready) */
+    --color-accent-blue: rgb(2, 132, 199);         /* Primary Action Blue */
+    --color-accent-emerald: rgb(16, 185, 129);     /* ✅ Mastered Emerald */
+    --color-accent-amber: rgb(217, 119, 6);        /* 🟡 In-Progress Amber */
+    --color-accent-rose: rgb(225, 29, 72);         /* 🔄 Needs Revision Rose */
+    --color-accent-gold: rgb(180, 83, 9);          /* 🌟 High-Yield Gold */
+    --color-accent-indigo: rgb(67, 56, 202);       /* 📑 Annales Indigo */
+}
+
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light Mode Custom Scrollbar (macOS Style) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(241, 245, 249);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(203, 213, 225);
+    border-radius: 9999px;
+    border: 2px solid rgb(241, 245, 249);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(148, 163, 184);
+}
+
+/* Light Glassmorphism Surfaces */
+.glass-header {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.glass-card {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+    background: rgb(255, 255, 255);
+    border-color: rgba(2, 132, 199, 0.4);
+    box-shadow: 0 12px 30px -4px rgba(2, 132, 199, 0.12);
+    transform: translateY(-2px);
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+}
+
+/* Cytoscape Flowchart Canvas Dimensions */
+#cy-container {
+    width: 100%;
+    height: 520px;
+    background: rgb(255, 255, 255);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* Modal Animation Keyframes */
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-animate {
+    animation: modalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pulse animation for AI status loader & running timers */
+@keyframes pulseGlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.ai-pulse {
+    animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+.timer-running #timer-status-dot {
+    animation: pulseGlow 1s infinite ease-in-out;
+    background-color: var(--color-accent-emerald) !important;
+}
+
+/* 4-State Mastery Status Badges & Buttons */
+.status-badge-not_started {
+    background-color: rgb(241, 245, 249);
+    color: rgb(71, 85, 105);
+    border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.status-badge-in_progress {
+    background-color: rgba(217, 119, 6, 0.12);
+    color: rgb(180, 83, 9);
+    border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+.status-badge-mastered,
+.status-badge-completed {
+    background-color: rgba(16, 185, 129, 0.12);
+    color: rgb(5, 150, 105);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.status-badge-needs_revision {
+    background-color: rgba(225, 29, 72, 0.12);
+    color: rgb(225, 29, 72);
+    border: 1px solid rgba(225, 29, 72, 0.25);
+}
+
+/* Active Workbench 4-State Selection Buttons */
+.workbench-status-btn {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.workbench-status-btn.active[data-status="not_started"] {
+    background-color: rgb(226, 232, 240);
+    border-color: rgb(148, 163, 184);
+    box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.3);
+}
+
+.workbench-status-btn.active[data-status="in_progress"] {
+    background-color: rgb(254, 243, 199);
+    border-color: rgb(245, 158, 11);
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+}
+
+.workbench-status-btn.active[data-status="mastered"] {
+    background-color: rgb(209, 250, 229);
+    border-color: rgb(16, 185, 129);
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+}
+
+.workbench-status-btn.active[data-status="needs_revision"] {
+    background-color: rgb(255, 228, 230);
+    border-color: rgb(225, 29, 72);
+    box-shadow: 0 0 0 2px rgba(225, 29, 72, 0.3);
+}
+
+/* Split-Screen Notes Input Typography */
+#workbench-notes-input {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+/* Universal Multi-Format Workbench Viewports */
+#workbench-image-viewer {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+#workbench-text-viewer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgb(226, 232, 240);
+}
+
+/* Edge-to-Edge Fullscreen Workbench Overrides */
+#workbench-modal.is-fullscreen {
+    padding: 0 !important;
+}
+
+#workbench-modal.is-fullscreen #workbench-modal-panel {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+/* Module 5 Activity Heatmap Tiles & Alignment */
+.heatmap-tile {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+}
+
+.heatmap-tile:hover {
+    transform: scale(1.35);
+    z-index: 10;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.heatmap-level-0 {
+    background-color: rgb(226, 232, 240);
+}
+
+.heatmap-level-1 {
+    background-color: rgb(167, 243, 208);
+}
+
+.heatmap-level-2 {
+    background-color: rgb(52, 211, 153);
+}
+
+.heatmap-level-3 {
+    background-color: rgb(5, 150, 105);
+}
+
+.heatmap-level-4 {
+    background-color: rgb(6, 78, 59);
+}
+
+/* Top Month Header Labels Positioning */
+#heatmap-months-track {
+    position: relative;
+    width: 100%;
+}
+
+.heatmap-month-label {
+    position: absolute;
+    left: calc(var(--col-idx) * 18px);
+    white-space: nowrap;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: rgb(100, 116, 139);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Streak Flame Animation Keyframes */
+@keyframes flameFlicker {
+    0%, 100% { transform: scale(1) rotate(-2deg); opacity: 1; }
+    50% { transform: scale(1.15) rotate(2deg); opacity: 0.85; }
+}
+
+.streak-flame-flicker {
+    display: inline-block;
+    animation: flameFlicker 1.8s infinite ease-in-out;
+}
+
+/* Accessible Focus Rings */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid rgb(2, 132, 199) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.2) !important;
+}
+
+/* Light Background Ambient Glow */
+.radial-glow-light {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(2, 132, 199, 0.07) 0%, rgba(248, 250, 252, 0) 70%);
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Mobile & Tablet Split-Screen Responsive Adjustments */
+@media (max-width: 1024px) {
+    #workbench-modal .grid {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+    }
+    
+    #workbench-modal .lg\:col-span-8 {
+        height: 520px;
+    }
+}

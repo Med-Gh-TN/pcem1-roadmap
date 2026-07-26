@@ -1,0 +1,12 @@
+You are an expert Medical Tutor explaining concepts to a First-Year Medical Student (PCEM1).
+
+Provide a clear, 2-sentence simplified summary in French for the medical term or topic: "{{ term }}".
+
+STRICT OUTPUT FORMAT MANDATE:
+Format your response using TOON format.
+
+TOON SCHEMA SPECIFICATION:
+explanation[1]{term,definition,key_takeaway}:
+  {{ term }},First sentence defining the concept clearly.,Second sentence explaining its clinical or physiological importance.
+
+Output ONLY the TOON structure. No Markdown or extra text.

@@ -1,0 +1,64 @@
+<!-- Apple HIG Light Glassmorphic Header -->
+<header class="glass-header sticky top-0 z-40 border-b border-[rgba(15,23,42,0.08)] bg-white/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+        
+        <!-- Branding & Title -->
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-[rgb(2,132,199)] flex items-center justify-center text-xl text-white shadow-md shadow-blue-500/20">
+                🩺
+            </div>
+            <div>
+                <h1 class="text-xl font-extrabold tracking-tight text-[rgb(15,23,42)]">
+                    PCEM1 Medical Roadmap
+                </h1>
+                <p class="text-xs text-[rgb(71,85,105)] font-medium">Portail d'Étude Interactif & Assistant IA FMT</p>
+            </div>
+        </div>
+
+        <!-- Header Widget: Exam Countdown & Pomodoro Timer -->
+        <div class="flex flex-wrap items-center gap-3">
+            <!-- Session Countdown Widget -->
+            <div id="exam-countdown-widget" class="glass-panel px-3 py-1.5 rounded-2xl border border-[rgba(15,23,42,0.08)] flex items-center gap-2 text-xs font-semibold text-[rgb(15,23,42)]">
+                <span class="text-base">⏳</span>
+                <div class="flex flex-col">
+                    <span id="countdown-janvier" class="text-[11px] text-[rgb(2,132,199)]">Jan: --d</span>
+                    <span id="countdown-mai" class="text-[10px] text-[rgb(100,116,139)]">Mai: --d</span>
+                </div>
+            </div>
+
+            <!-- Pomodoro Timer Controller Widget -->
+            <div id="pomodoro-widget" class="glass-panel px-3.5 py-1.5 rounded-2xl border border-[rgba(15,23,42,0.08)] flex items-center gap-3 bg-white/90">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500" id="timer-status-dot"></span>
+                        <span id="timer-display" class="font-mono text-sm font-extrabold text-[rgb(15,23,42)]">25:00</span>
+                    </div>
+                    <span id="timer-mode-label" class="text-[10px] font-medium text-[rgb(100,116,139)] uppercase tracking-wider">Pomodoro</span>
+                </div>
+                
+                <div class="flex items-center gap-1">
+                    <button id="btn-timer-toggle" onclick="togglePomodoro()" aria-label="Démarrer le timer" class="w-7 h-7 rounded-xl bg-[rgb(2,132,199)] text-white hover:bg-[rgb(3,105,161)] flex items-center justify-center text-xs font-bold transition-all shadow-sm">
+                        ▶
+                    </button>
+                    <button id="btn-timer-reset" onclick="resetPomodoro()" aria-label="Réinitialiser le timer" class="w-7 h-7 rounded-xl bg-[rgb(241,245,249)] hover:bg-[rgb(226,232,240)] text-[rgb(71,85,105)] flex items-center justify-center text-xs font-bold transition-all">
+                        🔄
+                    </button>
+                </div>
+            </div>
+
+            <!-- Global Progress Gauge Bar -->
+            <div class="w-full md:w-64 glass-panel rounded-2xl p-2 border border-[rgba(15,23,42,0.08)]">
+                <div class="flex justify-between text-xs px-1 mb-1 font-semibold">
+                    <span id="progress-text" class="text-[rgb(2,132,199)] text-[11px]">Progression: 0%</span>
+                    <button id="btn-toggle-weighted" onclick="toggleWeightedProgress()" class="text-[10px] text-indigo-600 font-bold hover:underline cursor-pointer">
+                        Coef. Faculté: ⚖️ Off
+                    </button>
+                </div>
+                <div class="w-full bg-[rgb(241,245,249)] rounded-full h-2 overflow-hidden border border-[rgba(15,23,42,0.06)]">
+                    <div id="progress-bar" class="bg-gradient-to-r from-[rgb(2,132,199)] to-[rgb(16,185,129)] h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCEM1 Medical Learning Roadmap & AI Workstation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: { 50: '#f0f9ff', 500: '#0284c7', 700: '#0369a1', 900: '#0c4a6e' }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Cytoscape.js Graph Visualization Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <!-- Custom Design Tokens & Light Glassmorphism -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-[rgb(248,250,252)] text-[rgb(15,23,42)] min-h-screen font-sans relative">
+
+    <!-- Light Background Radial Glow -->
+    <div class="radial-glow-light"></div>
+
+    <!-- Modular Header -->
+    {% include 'components/header.html' %}
+
+    <!-- Dynamic Page Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Modular Modals & Workbench -->
+    {% include 'components/workbench.html' %}
+    {% include 'components/modals.html' %}
+
+<!-- Application Script Modules -->
+    <script src="/static/js/api.js"></script> <!-- Still loads window.API -->
+    <script type="module" src="/static/js/main.js"></script> <!-- ES6 Module Entry Point -->
+</body>
+</html>

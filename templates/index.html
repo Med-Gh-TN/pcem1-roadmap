@@ -1,0 +1,197 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<main class="max-w-7xl mx-auto px-6 py-6 relative z-10" role="main">
+    
+    <!-- Segmented Navigation Control -->
+    <div class="flex justify-center mb-8">
+        <nav class="flex p-1.5 bg-slate-200/60 backdrop-blur-md rounded-2xl shadow-inner border border-slate-300/50">
+            <button id="btn-tab-dashboard" onclick="switchMainTab('dashboard')" class="px-6 py-2.5 rounded-xl bg-white text-slate-900 font-bold text-xs shadow-sm transition-all flex items-center gap-2">
+                🏠 Accueil
+            </button>
+            <button id="btn-tab-programme" onclick="switchMainTab('programme')" class="px-6 py-2.5 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-200/50 font-semibold text-xs transition-all flex items-center gap-2">
+                🗺️ Le Programme
+            </button>
+        </nav>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: DASHBOARD (Stats & Gamification)   -->
+    <!-- ========================================== -->
+    <div id="view-dashboard" class="space-y-8 animate-fade-in">
+        
+        <div class="text-center space-y-2 mb-6">
+            <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Bienvenue sur votre espace PCEM1</h1>
+            <p class="text-xs font-semibold text-slate-500">Reprenez votre apprentissage là où vous l'avez laissé.</p>
+        </div>
+
+        <!-- Quick-Stats Bar -->
+        <section class="grid grid-cols-2 sm:grid-cols-4 gap-4" aria-label="Aperçu des statistiques">
+            <div class="glass-card p-5 rounded-3xl flex items-center gap-4 bg-white/80 border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                <div class="w-12 h-12 rounded-2xl bg-sky-50 text-[rgb(2,132,199)] border border-sky-200/60 flex items-center justify-center text-2xl font-bold shadow-inner">📚</div>
+                <div>
+                    <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider block mb-0.5">Total Cours</span>
+                    <strong id="stat-total-courses" class="text-2xl font-black text-slate-900 font-mono">0</strong>
+                </div>
+            </div>
+            <div class="glass-card p-5 rounded-3xl flex items-center gap-4 bg-white/80 border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center text-2xl shadow-inner">✅</div>
+                <div>
+                    <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider block mb-0.5">Maîtrisés</span>
+                    <strong id="stat-mastered-count" class="text-2xl font-black text-emerald-600 font-mono">0</strong>
+                </div>
+            </div>
+            <div class="glass-card p-5 rounded-3xl flex items-center gap-4 bg-white/80 border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 border border-rose-200/60 flex items-center justify-center text-2xl shadow-inner">🔄</div>
+                <div>
+                    <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider block mb-0.5">À Réviser</span>
+                    <strong id="stat-revision-count" class="text-2xl font-black text-rose-600 font-mono">0</strong>
+                </div>
+            </div>
+            <div class="glass-card p-5 rounded-3xl flex items-center gap-4 bg-white/80 border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 border border-indigo-200/60 flex items-center justify-center text-2xl shadow-inner">⏱️</div>
+                <div>
+                    <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider block mb-0.5">Temps Étudié</span>
+                    <strong id="stat-study-time" class="text-2xl font-black text-indigo-600 font-mono">0.0h</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gamification: Heatmap -->
+        <section id="analytics-section" class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 bg-white/80 border border-slate-200/80 shadow-sm">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-slate-200/80 pb-4">
+                <div class="flex items-center gap-3">
+                    <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">🔥 Série d'Étude Active</h2>
+                    <div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs shadow-2xs">
+                        <span class="streak-flame-flicker">🔥</span> <span id="streak-days-text" class="font-bold">0 Jours d'affilée</span> <span id="streak-max-text" class="text-[10px] text-amber-600 font-medium">(Max: 0j)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="overflow-x-auto pb-2">
+                <div class="inline-block min-w-[730px] p-4 bg-slate-50/80 rounded-2xl border border-slate-200/80 shadow-inner">
+                    <div class="flex items-center mb-2 pl-7"><div id="heatmap-months-track" class="flex-1 flex text-[11px] font-bold text-slate-500 font-mono relative h-4"></div></div>
+                    <div class="flex items-center gap-2">
+                        <div class="flex flex-col justify-between text-[10px] font-bold text-slate-400 h-[96px] w-6 text-right pr-1.5">
+                            <span style="margin-top: 13px;">Lun</span><span style="margin-top: 1px;">Mer</span><span style="margin-top: 1px;">Ven</span>
+                        </div>
+                        <div id="heatmap-grid" class="flex gap-1.5"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: LE PROGRAMME (Grid & Timeline)     -->
+    <!-- ========================================== -->
+    <div id="view-programme" class="space-y-6 hidden animate-fade-in">
+        
+        <!-- Search & Filters -->
+        <section class="glass-panel p-3.5 rounded-3xl bg-white/80 border border-slate-200/80 shadow-sm flex flex-col xl:flex-row gap-3">
+            <div class="flex-1 relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <span class="text-slate-400">🔍</span>
+                </div>
+                <input type="text" id="search-input" oninput="handleSearchInput()" placeholder="Rechercher un cours, un poly, un sujet d'examen..." class="w-full bg-slate-50/80 border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-xs text-slate-800 focus:bg-white focus:border-[rgb(2,132,199)] focus:ring-2 focus:ring-sky-100 outline-none transition-all font-medium">
+            </div>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <select id="subject-filter" onchange="handleSearchInput()" class="bg-slate-50/80 border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-800 focus:bg-white focus:border-[rgb(2,132,199)] outline-none font-semibold cursor-pointer transition-all">
+                    <option value="ALL">Toutes matières</option>
+                    <option value="Anatomie">Anatomie</option>
+                    <option value="Biochimie">Biochimie</option>
+                    <option value="Biologie cellulaire">Biologie cellulaire</option>
+                    <option value="Biophysique">Biophysique</option>
+                    <option value="Histologie">Histologie</option>
+                    <option value="Embryologie">Embryologie</option>
+                    <option value="Physiologie">Physiologie</option>
+                    <option value="Bactériologie">Bactériologie</option>
+                </select>
+                <button onclick="toggleFilter('high_yield')" id="btn-hy" class="px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-300 text-slate-700 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-2xs whitespace-nowrap">🌟 High-Yield</button>
+                <button onclick="toggleFilter('annales')" id="btn-annales" class="px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-purple-300 text-slate-700 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-2xs whitespace-nowrap">📑 Exams</button>
+            </div>
+        </section>
+
+        <!-- View Mode Controls -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <nav class="flex gap-1.5 p-1.5 glass-panel rounded-2xl border border-slate-200/80 bg-white/80 shadow-2xs">
+                <button onclick="switchViewMode('grid')" data-view="grid" class="view-btn px-4 py-2 rounded-xl bg-[rgb(15,23,42)] text-white text-xs font-bold shadow-xs transition-all">🗂️ Vue Grille</button>
+                <button onclick="switchViewMode('timeline')" data-view="timeline" class="view-btn px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-600 text-xs font-semibold border border-slate-200/80 transition-all">📅 Chronologie</button>
+            </nav>
+            <nav class="flex gap-2 p-1.5 glass-panel rounded-2xl border border-slate-200/80 bg-white/80 shadow-2xs">
+                <button onclick="filterSemester('ALL')" data-sem="ALL" class="sem-btn px-4 py-2 rounded-xl bg-[rgb(15,23,42)] text-white text-xs font-bold shadow-xs transition-all">Tous</button>
+                <button onclick="filterSemester('Semestre 1')" data-sem="Semestre 1" class="sem-btn px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-600 text-xs font-semibold border border-slate-200/80 transition-all">Semestre 1</button>
+                <button onclick="filterSemester('Semestre 2')" data-sem="Semestre 2" class="sem-btn px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-600 text-xs font-semibold border border-slate-200/80 transition-all">Semestre 2</button>
+            </nav>
+        </div>
+
+        <!-- Timeline View -->
+        <section id="timeline-view" class="hidden space-y-6"></section>
+
+        <!-- Search Results View -->
+        <section id="search-results-container" class="hidden glass-panel p-6 rounded-3xl border border-sky-300/80 bg-white/90 space-y-4 shadow-md">
+            <h3 class="text-sm font-bold text-[rgb(2,132,199)]">🔎 Résultats de recherche (<span id="search-count">0</span>)</h3>
+            <div id="search-results-list" class="space-y-2.5"></div>
+        </section>
+
+        <!-- Default Grid View Container -->
+        <div id="roadmap-container" class="space-y-10"></div>
+    </div>
+
+    <!-- SOTA ROADMAP.SH Sidebar Drawer -->
+    <div id="theme-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-[-10px_0_30px_rgba(0,0,0,0.1)] z-50 hidden flex-col transition-transform translate-x-full border-l border-slate-200">
+        
+        <!-- Header Navigation Bar -->
+        <div class="flex justify-between items-center px-4 py-3 border-b border-slate-200 text-sm font-semibold text-slate-600 shrink-0">
+            <div class="flex gap-2">
+                <button class="text-black bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-md flex items-center gap-2 transition-all">
+                    <span class="w-3 h-3 bg-black rounded-sm"></span> Ressources
+                </button>
+                <button id="btn-drawer-launch-tuto" class="hover:text-black px-3 py-1.5 rounded-md flex items-center gap-1.5 transition-all">
+                    <span class="w-3 h-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-[8px] flex items-center justify-center rounded-sm">✨</span> AI Tutor
+                </button>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-emerald-600 font-bold hidden" id="drawer-done-badge">✓ Done</span>
+                <button onclick="closeThemeDrawer()" class="hover:text-black border-l pl-3 ml-1 border-slate-300 transition-all">✕ Close</button>
+            </div>
+        </div>
+
+        <!-- Body Content -->
+        <div class="p-6 overflow-y-auto flex-1 custom-scrollbar">
+            <h1 id="drawer-theme-title" class="text-3xl font-extrabold text-black mb-3">Titre du Module</h1>
+            <p id="drawer-theme-desc" class="text-slate-600 mb-6 leading-relaxed text-sm">
+                Sélectionnez une ressource ci-dessous pour ouvrir le lecteur scindé ou lancez l'AI Tutor pour une session d'apprentissage interactive.
+            </p>
+            
+            <div class="border border-slate-200 rounded-lg p-5 bg-white shadow-[2px_2px_0_0_rgba(0,0,0,0.04)]">
+                <h4 class="text-sm font-bold text-emerald-600 mb-4 flex items-center gap-2">📗 Ressources Disponibles</h4>
+                <div id="drawer-resource-matrix" class="space-y-3">
+                    <!-- Dynamically populated resource lists -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    function switchMainTab(tabId) {
+        const tabs = ['dashboard', 'programme'];
+        tabs.forEach(id => {
+            const view = document.getElementById('view-' + id);
+            const btn = document.getElementById('btn-tab-' + id);
+            
+            if (id === tabId) {
+                view.classList.remove('hidden');
+                btn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+                btn.classList.remove('text-slate-500', 'hover:text-slate-800', 'hover:bg-slate-200/50');
+            } else {
+                view.classList.add('hidden');
+                btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                btn.classList.add('text-slate-500', 'hover:text-slate-800', 'hover:bg-slate-200/50');
+            }
+        });
+    }
+</script>
+
+{% endblock %}

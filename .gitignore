@@ -1,0 +1,51 @@
+# @file .gitignore
+# @description Git exclusion rules to secure secrets, databases, and heavy media assets.
+# @layer Core Logic
+# @dependencies None
+
+# ---------------------------------------------------------
+# SECRETS & CREDENTIALS (CRITICAL: NEVER COMMIT)
+# ---------------------------------------------------------
+.env
+.env.*
+!*.example
+
+# ---------------------------------------------------------
+# DATABASE FILES
+# ---------------------------------------------------------
+*.db
+*.sqlite
+*.sqlite3
+pcem1_roadmap.db
+pcem1_roadmap.db-journal
+
+# ---------------------------------------------------------
+# MEDIA ASSETS (Moving to Cloudflare R2)
+# ---------------------------------------------------------
+source/
+uploads/
+
+# ---------------------------------------------------------
+# PYTHON VIRTUAL ENVIRONMENTS
+# ---------------------------------------------------------
+venv/
+env/
+ENV/
+.venv/
+
+# ---------------------------------------------------------
+# PYTHON CACHE & ARTIFACTS
+# ---------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# ---------------------------------------------------------
+# OS & IDE FILES
+# ---------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

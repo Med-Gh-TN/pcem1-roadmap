@@ -1,0 +1,997 @@
+📊 Curriculum Knowledge Map
+
+Program: Medical Studies Curriculum - Faculté de Médecine de Tunis (FMT)
+
+THEME 1 : SANTE, POPULATION, MEDECINE ET FORMATION MEDICALE, HISTOIRE DE LA MEDECINE (30h)
+
+  - Formation médicale (6h)
+      - Cours: La problématique de la formation médicale (2h)
+      - Cours: Les domaines d’apprentissage et évaluation (2h)
+      - Cours: Identification et utilisation des ressources d’apprentissage (2h)
+  - Santé population (6h)
+      - Cours: Santé, maladie et niveaux d’intervention (2h)
+      - Cours: Les déterminants de la santé et leur mesure (2h)
+      - Cours: Les objectifs de santé et système de santé tunisien (2h)
+  - Ethique médicale (6h)
+      - Cours: Qu’est-ce que l’éthique médicale (2h)
+      - TD: Les caractéristiques de l’éthique médicale (2h)
+      - TD: La relation médecin/patient (2h)
+  - Histoire de la médecine (2h)
+      - Cours: Histoire de la médecine (2h)
+  - Sciences humaines (6h)
+      - Cours: Sciences humaines (2h)
+      - TD: Sciences humaines (4h)
+  - Communication (4h)
+      - Cours: L'empathie comme ressource dans la relation de soin (2h)
+      - TD: Communication (2h)
+
+THEME 2 : LA CELLULE : STRUCTURE ET FONCTIONS (80h)
+
+  - Biologie cellulaire (32h)
+      - Cours: Introduction. Membrane biologique (2h)
+      - Cours: Membrane plasmique et cytosol (2h)
+      - Cours: Le cytosquelette et les systèmes de jonctions (2h)
+      - Cours: Le système endomembranaire 1 (2h)
+      - Cours: Le système endomembranaire 2 (2h)
+      - Cours: La mitochondrie (2h)
+      - Cours: Le cycle cellulaire et le noyau interphasique (2h)
+      - Cours: Les gènes de structure et transcription (2h)
+      - Cours: Le nucléole. La traduction (2h)
+      - Cours: La réplication et la mitose (2h)
+      - Cours: Le chromosome (2h)
+      - Cours: La méiose et régulation du cycle cellulaire (2h)
+      - TD: Cours 1-2-3 (2h)
+      - TD: Cours 4-5-6 (2h)
+      - TD: Cours 7-8-9 (2h)
+      - TD: Cours 10-11-12 (2h)
+  - Biochimie structurale (22h)
+      - Cours: Les monosaccharides (2h)
+      - Cours: Les disaccharides, oligosaccharides et polysaccharides (2h)
+      - Cours: Les acides gras saturés et insaturés (2h)
+      - Cours: Les glycérolipides, sphingolipides et isoprénoides (2h)
+      - Cours: Les acides aminés (2h)
+      - Cours: Peptides et protéines 1 (2h)
+      - Cours: Peptides et protéines 2 (2h)
+      - Cours: Les acides nucléiques (2h)
+      - Cours: Les enzymes 1 (2h)
+      - Cours: Les enzymes 2 (2h)
+      - Cours: Les coenzymes (2h)
+  - Biochimie métabolique (26h)
+      - Cours: Bioénergétique 1 (2h)
+      - Cours: Bioénergétique 2 (2h)
+      - Cours: Glycolyse (2h)
+      - Cours: Voie des pentoses P et Néoglucogenèse (2h)
+      - Cours: Métabolisme du Glycogène, Glycosaminoglycanes, fructose,
+        galactose, mannose (2h)
+      - Cours: Biosynthèse des acides gras et des triglycérides (2h)
+      - Cours: Dégradation des triglycérides et des acides gras (2h)
+      - Cours: Métabolisme des corps cétoniques, métabolisme des lipides
+        complexes (2h)
+      - Cours: Métabolisme du cholestérol (2h)
+      - Cours: Catabolisme des acides aminés : décarboxylation, transamination,
+        désamination et uréogenèse (2h)
+      - Cours: Devenir du squelette carboné des acides aminés, biosynthèse des
+        AA non essentiels et dérivés (2h)
+      - Cours: Métabolisme des nucléotides (2h)
+      - Cours: Métabolisme intermédiaire (2h)
+
+THEME 3 : ANATOMIE GENERALE. DEVELOPPEMENT EMBRYONNAIRE. TISSUS EPITHELIAUX ET CONJONCTIFS. (36h)
+
+  - Histo-embryologie (26h)
+      - Cours: Techniques histologiques et tissus Epithéliaux simples (2h)
+      - Cours: Tissus Epithéliaux stratifiés et pseudo stratifié (2h)
+      - Cours: Glandes simples (2h)
+      - Cours: Glandes composées (2h)
+      - Cours: Tissus conjonctifs (2h)
+      - Cours: Gamétogenèse, fécondation (2h)
+      - Cours: Migration, nidation, Disque didermique (2h)
+      - Cours: Disque tridermique (2h)
+      - Cours: Annexes embryonnaires Placenta, Devenir des feuillets
+        embryonnaires (2h)
+      - TD: Embryologie générale (2h)
+      - TP: Histologie des épithéliums de revêtement (2h)
+      - TP: Tissus épithéliaux glandulaires (2h)
+      - TP: Tissus conjonctifs (2h)
+  - Anatomie (10h)
+      - Cours: Les bases de la connaissance anatomique (2h)
+      - Cours: La description anatomique (2h)
+      - Cours: Appareil locomoteur – Appareil de l’innervation (2h)
+      - Cours: Appareil circulatoire – Appareil respiratoire (2h)
+      - Cours: Appareil digestif, urinaire, génital et endocrinien (2h)
+
+THEME 4 : IMAGERIE MEDICALE (44h)
+
+  - Biophysique (44h)
+      - Cours: Introduction – Structure de l’atome (2h)
+      - Cours: Radioactivité 1 (2h)
+      - Cours: Radioactivité 2 (2h)
+      - Cours: Production des RX (2h)
+      - Cours: Interactions rayonnements – matière 1 (2h)
+      - Cours: Interactions rayonnements – matière 2 (2h)
+      - Cours: Détecteurs (2h)
+      - Cours: Dosimétrie – Radioprotection (2h)
+      - Cours: Radiobiologie 1 (2h)
+      - Cours: Radiobiologie 2 (2h)
+      - Cours: Image radiologique (2h)
+      - Cours: Imagerie Numérique (2h)
+      - Cours: TDM (2h)
+      - Cours: Médecine Nucléaire 1 (2h)
+      - Cours: Médecine Nucléaire 2 (2h)
+      - Cours: Echographie 1 (2h)
+      - Cours: Echographie 2 (2h)
+      - Cours: IRM1 (2h)
+      - Cours: IRM2 (2h)
+      - TP: Radioactivité comptage (2h)
+      - TP: Image Virtuelle (2h)
+      - TP: Image radiologique (2h)
+
+THEME 5 : APPAREIL LOCOMOTEUR (74h Calculated / 72h Stated)
+
+  - Anatomie A (20h)
+      - Cours: Le creux axillaire (2h)
+      - Cours: Le bras (2h)
+      - Cours: L’avant-bras (2h)
+      - Cours: Le poignet – La main (2h)
+      - Cours: L’épaule – Le coude – La pronosupination (2h)
+      - Cours: Les vaisseaux du membre supérieur (2h)
+      - Cours: Les nerfs du membre supérieur (2h)
+      - Cours: Dissection + Révision (2h)
+      - TP: Ostéologie: Clavicule - Scapula - Humérus (2h)
+      - TP: Ostéologie: Radius – ULNA - Main (2h)
+  - Histologie-Embryologie (12h)
+      - Cours: Tissu musculaire strié squelettique (2h)
+      - Cours: Tissu musculaire cardiaque et lisse (2h)
+      - Cours: Tissu cartilagineux et osseux (2h)
+      - Cours: Articulation et embryogenèse des membres et du rachis (2h)
+      - TP: Histologie des tissus musculaires (2h)
+      - TP: Histologie des tissus osseux et cartilagineux (2h)
+  - Biophysique (10h)
+      - Cours: Notion Fondamentale de Bioélectricité - Dipôle électrique (2h)
+      - Cours: Biomécanique statique (2h)
+      - Cours: Bioélectricité de la fibre nerveuse (2h)
+      - Cours: Biomécanique de la fibre musculaire (2h)
+      - Cours: Biomécanique du mouvement (2h)
+  - Anatomie B (24h)
+      - Cours: Myologie et anatomie fonctionnelle du rachis (2h)
+      - Cours: Fesse – Articulation – Hanche (2h)
+      - Cours: Le Scarpa – La cuisse (2h)
+      - Cours: Le genou - Le creux poplité (2h)
+      - Cours: La jambe (2h)
+      - Cours: La cheville - Le pied (2h)
+      - Cours: Les vaisseaux du membre inférieur (2h)
+      - Cours: Les nerfs du membre inférieur (2h)
+      - Cours: Dissection + Révision (2h)
+      - TP: Ostéologie: La Colonne vertébrale – Sternum - côtes (2h)
+      - TP: Ostéologie: Os Coxal - Fémur - Patella (2h)
+      - TP: Ostéologie: Tibia - Fibula - Os du pied (2h)
+  - Biochimie (4h)
+      - Cours: Tissu cartilagineux et Tissu osseux (2h)
+      - Cours: Tissu musculaire (2h)
+  - Physiologie (4h)
+      - Cours: Phénomène mécanique de la contraction musculaire (2h)
+      - Cours: Travail musculaire et explorations fonctionnelles (2h)
+
+THEME 6 : MILIEU INTERIEUR ET COMPOSITION DU SANG (62h)
+
+  - Biochimie (20h)
+      - Cours: Introduction à la Biochimie Clinique (2h)
+      - Cours: Compartiments et échanges hydro-électrolytiques (2h)
+      - Cours: Exploration des troubles hydro-électrolytiques (2h)
+      - Cours: Equilibre acido-basique (2h)
+      - Cours: Composés azotés non protéiques (2h)
+      - Cours: Protéines plasmatiques 1 (2h)
+      - Cours: Protéines plasmatiques 2 (2h)
+      - Cours: Lipoprotéines (2h)
+      - Cours: Glycémie (2h)
+      - Cours: Enzymes sériques (2h)
+  - Histologie-Embryologie (6h)
+      - Cours: Histologie des Globules rouges et des plaquettes (2h)
+      - Cours: Histologie des Globules blancs (2h)
+      - Cours: Hématopoïèse (2h)
+  - Biophysique (30h)
+      - Cours: L'eau - les solutions (2h)
+      - Cours: La diffusion (2h)
+      - Cours: Les propriétés colligatives des solutions : 1ére partie (2h)
+      - Cours: Les propriétés colligatives des solutions : 2éme partie (2h)
+      - Cours: Les propriétés électriques des solutions micromoléculaires (2h)
+      - Cours: pH des solutions tampons et des ampholytes (2h)
+      - Cours: Equilibre acido-basique (2h)
+      - Cours: Les potentiels d’électrodes (2h)
+      - Cours: Physico-chimie des macromolécules (2h)
+      - Cours: L’équilibre de Donnan : 1ére partie (2h)
+      - Cours: L’équilibre de Donnan : 2ème partie (2h)
+      - Cours: Electrophorèse des protides (2h)
+      - Cours: Applications médicales (2h)
+      - TP: Conductivité des solutions électrolytiques (2h)
+      - TP: Equilibre acido-basique (2h)
+  - Hématologie Biologique (6h)
+      - Cours: Physiologie de l’hémostase (2h)
+      - TP: Hématologie Biologique (4h)
+
+THEME 7 : LES FACTEURS DE MORBIDITE (31h)
+
+  - Bactériologie, Virologie & Parasitologie (16h)
+      - Cours: Cellule bactérienne (2h)
+      - Cours: Croissance et nutrition bactérienne – Bactériophages (2h)
+      - Cours: Les facteurs de virulence (2h)
+      - Cours: La génétique bactérienne (2h)
+      - Cours: Généralité sur les virus et Infection virale (2h)
+      - Cours: Les examens virologiques (2h)
+      - Cours: Le parasitisme, les parasites et leur classification (2h)
+      - Cours: Cycle biologique et relations avec l’hôte, Diagnostic (2h)
+  - Nutrition, Réanimation & Psychiatrie (7h)
+      - Cours: Nutrition : Agressions alimentaires (1h)
+      - Cours: A. Réanimation : Agressions chimiques en milieu urbain (4h)
+      - Cours: Psychiatrie : Agressions psychiques (2h)
+  - Médecine Préventive (8h)
+      - Cours: Le Risque : concept et application / Méthodologie épidémiologique
+        (2h)
+      - Cours: Epidémiologie et prévention des maladies transmissibles (2h)
+      - Cours: Epidémiologie et prévention des infections nosocomiales.
+        Education pour la santé (2h)
+      - Cours: Hygiène de l’eau et des aliments. Notions de planification
+        sanitaire (2h)
+
+THEME 8 : LA RESPIRATION (46h)
+
+  - Anatomie (10h)
+      - Cours: Les muscles respiratoires (2h)
+      - Cours: Les voies aériennes supérieures (2h)
+      - Cours: Les voies ariennes inférieures – Le poumon – La plèvre (2h)
+      - Cours: Le pédicule pulmonaire (2h)
+      - TP: Appareil respiratoire (2h)
+  - Histologie-Embryologie (6h)
+      - Cours: Histologie des Voies aériennes supérieures et des poumons (2h)
+      - Cours: Histologie des Poumons et de la plèvre. Embryologie. (2h)
+      - TP: Appareil respiratoire (2h)
+  - Physiologie (24h)
+      - Cours: La respiration: Rapport - structure - fonction (2h)
+      - Cours: Mécanique respiratoire: système actif (2h)
+      - Cours: Mécanique respiratoire: système passif (2h)
+      - Cours: Echanges gazeux (2h)
+      - Cours: Exploration de la ventilation (2h)
+      - Cours: Diffusion alvéolo-capillaire (2h)
+      - Cours: Transport des gaz: transport de l’oxygène (2h)
+      - Cours: Transport des gaz: transport du CO2 et respiration tissulaire
+        (2h)
+      - Cours: Formation du sang artériel (2h)
+      - Cours: Broncho motricité (2h)
+      - Cours: Contrôle de la ventilation (2h)
+      - Cours: Adaptation respiratoire à l’exercice musculaire (2h)
+  - Biochimie (6h)
+      - Cours: L’hémoglobine : structure et fonction 1 (2h)
+      - Cours: L’hémoglobine : structure et fonction 2 (2h)
+      - Cours: L’hémoglobine : structure et fonction 3 (2h)
+
+THEME 9 : LA CIRCULATION (Reconstructed via Local Files)
+
+  - Anatomie
+      - Cours: Le thorax et le médiastin
+      - Cours: Configuration extérieure du cœur (Cœur Droit)
+      - Cours: Vascularisation, innervation et lymphatiques
+  - Biophysique
+      - Cours: Fluides parfaits
+      - Cours: Fluides réels (Poiseuille, Bernoulli)
+      - Cours: Hémodynamique
+  - Embryologie
+      - Cours: Embryologie cardio-vasculaire
+  - Histologie
+      - Cours: Histologie du cœur
+      - Cours: Histologie des vaisseaux sanguins et lymphatiques
+  - Physiologie
+      - Cours: Propriétés électriques du cœur
+      - Cours: Électrocardiogramme (ECG)
+      - Cours: Phénomènes mécaniques cardiaques
+      - Cours: Le débit cardiaque
+      - Cours: Système à haute pression / La pression artérielle moyenne
+      - Cours: Système à basse pression
+      - Cours: La circulation coronaire
+      - Cours: Adaptation cardio-vasculaire à l'exercice
+
+SECOURISME (24h)
+
+  - Cours (16h)
+      - Les intervenants du système de secours en Tunisie (1h)
+      - Rôle et responsabilités d’un secouriste (1h)
+      - Les détresses respiratoires (2h)
+      - Les détresses circulatoires (2h)
+      - Les détresses neurologiques (2h)
+      - L’arrêt cardiaque (2h)
+      - Traumatismes - Brûlures (2h)
+      - Les situations circonstancielles (2h)
+      - Les malaises (1h)
+      - Les systèmes d’organisation des secours en Tunisie en cas de catastrophe
+        (1h)
+  - TP (8h)
+      - TP 1: Alerte - Protection (2h)
+      - TP 2: Les positions d’attente (2h)
+      - TP 3: Les manœuvres de ressuscitation (2h)
+      - TP 4: Immobilisation - Relevage - Brancardage (2h)
+
+INFORMATIQUE MEDICALE (24h)
+
+  - Cours & TP (24h)
+      - Cours: Tenir compte du caractère évolutif des TIC (2h)
+      - Cours: Intégrer la dimension éthique et le respect de la déontologie
+        (2h)
+      - Cours + TP: S'approprier son environnement de travail (2h)
+      - Cours + TP: Rechercher l'information (2h)
+      - Cours + TP: Sauvegarder, sécuriser, archiver ses données (2h)
+      - Cours + TP: Réaliser des documents destinés à être imprimés (WORD) 1
+        (2h)
+      - Cours + TP: Réaliser des documents destinés à être imprimés (WORD) 2
+        (2h)
+      - Cours + TP: Réaliser des documents destinés à être imprimés (EXCEL) 1
+        (2h)
+      - Cours + TP: Réaliser des documents destinés à être imprimés (EXCEL) 2
+        (2h)
+      - Cours + TP: Réaliser la présentation (POWERPOINT) (2h)
+      - Cours + TP: Echanger et communiquer à distance (2h)
+      - Cours + TP: Mener des projets en travail collaboratif à distance (2h)
+
+ANGLAIS MEDICAL (26h)
+
+  - Units 1-7 & Revision
+      - (Note: Sub-course hours are not delineated in the provided schedule;
+        total module time is 26 hours encompassing vocabulary, grammar, medical
+        terminology, location expressions, and video sequence analysis).
+
+⚖️ Coefficients & Evaluation
+
+| Theme / Module            | Coefficient         | Session d’examen |
+| :------------------------ | :------------------ | :--------------- |
+| **THEME 1**               | 20                  | Janvier          |
+| **THEME 2a**              | 60 *(shared w/ 2b)* | Janvier          |
+| **THEME 2b**              | *(merged into 60)*  | Juin             |
+| **THEME 3**               | 30                  | Janvier          |
+| **THEME 4**               | 30                  | Janvier          |
+| **THEME 5a**              | 60 *(shared w/ 5b)* | Janvier          |
+| **THEME 5b**              | *(merged into 60)*  | Juin             |
+| **THEME 6**               | 40                  | Juin             |
+| **THEME 7**               | 20                  | Janvier          |
+| **THEME 8**               | 40                  | Juin             |
+| **THEME 9**               | 40                  | Juin             |
+| **SECOURISME**            | 20                  | Juin             |
+| **INFORMATIQUE MEDICALE** | 20                  | Avril            |
+| **ANGLAIS MEDICAL**       | 20                  | Juin             |
+
+
+
+
+============================================================
+🚀 [PHASE 1] DEEP TOPOLOGICAL CRAWL INITIATED
+============================================================
+✅ State Snapshot: 451 files. Found 0 legacy assets.
+
+🚀 [PHASE 3] DATABASE RECONCILIATION & GARBAGE COLLECTION
+✅ Indexed 451 items. Pruned 0 ghost records.
+
+📊 [AUDIT CONSOLE] SOTA INDEXER TELEMETRY
+   • Execution Time   : 0.04 seconds
+   • Top Extensions   : .pdf (440), .mp4 (7), .png (3), .jpg (1)
+============================================================
+
+
+~/Desktop/road/source$
+.
+└── PCEM1 2024
+    ├── Semestre_1
+    │   ├── Diapos
+    │   │   ├── Th_1
+    │   │   │   ├── Communication
+    │   │   │   │   └── L_empathie_comme_ressource_dans_la_relation_de_soin.pdf
+    │   │   │   ├── Ethique_medicale
+    │   │   │   │   ├── Ethique_cours_PCEM_1.pdf
+    │   │   │   │   └── TD_ethique.pdf
+    │   │   │   ├── Formation_medicale
+    │   │   │   │   └── Roles_enseignant_-_etudiant.pdf
+    │   │   │   ├── Histoire_de_la_medecine
+    │   │   │   │   └── Histoire_de_la_medecine.pdf
+    │   │   │   ├── POLY-PCEM1-THEME-1.pdf
+    │   │   │   └── Sante-population
+    │   │   │       ├── Principes_de_la_Responsabilite_Sociale_en_Sante_et_Role_des_Facultes_de_Medecine.pdf
+    │   │   │       ├── Seance_1_Sante_et_niveaux_d_intervention.pdf
+    │   │   │       ├── Seance_2_Determinants_de_la_sante_et_indicateurs.pdf
+    │   │   │       └── Seance_3_Sante_publique_systeme_de_sante_Tunisien.pdf
+    │   │   ├── Th_2A
+    │   │   │   ├── Biochimie
+    │   │   │   │   ├── Acides_amines.pdf
+    │   │   │   │   ├── Enzymes_1.pdf
+    │   │   │   │   ├── FM-bioch-2a-2018.pdf
+    │   │   │   │   ├── Glucides
+    │   │   │   │   │   └── Biochimie_Structure_des_Glucides.pdf
+    │   │   │   │   ├── Lipides.pdf
+    │   │   │   │   ├── Peptides.pdf
+    │   │   │   │   └── Proteines.pdf
+    │   │   │   ├── Biologie_cellulaire
+    │   │   │   │   ├── Correction_des_TD
+    │   │   │   │   │   ├── Suite_TD_3_et_TD4.pdf
+    │   │   │   │   │   ├── TD_1.pdf
+    │   │   │   │   │   ├── TD_2.pdf
+    │   │   │   │   │   └── TD3.pdf
+    │   │   │   │   ├── Diapos
+    │   │   │   │   │   ├── Biomembranes_systemes_de_jonction_systeme_endomembranaire.pdf
+    │   │   │   │   │   ├── Cours-Traduction-2023.pdf
+    │   │   │   │   │   ├── Cours-Transcription-FMT-2023.pdf
+    │   │   │   │   │   ├── Cycle_cellulaire_et_noyau_interphasique.pdf
+    │   │   │   │   │   ├── Cytosquelette-2023_mohamed_abdelkarim.pdf
+    │   │   │   │   │   ├── Jonctions_recap_qcms
+    │   │   │   │   │   │   └── BioCell_Jonctions_et_Adherence_Cellulaire_Recap_QCM.pdf
+    │   │   │   │   │   ├── La_mitochondrie_2023
+    │   │   │   │   │   ├── La_mitochondrie.pdf
+    │   │   │   │   │   ├── Le-cycle-cellulaire_-noyau-interphasique-et-metaphaseique-WA-2023.pdf
+    │   │   │   │   │   ├── Les_recepteurs_membranaires.pdf
+    │   │   │   │   │   ├── Meiose_et_Regulation_du_cycle_cellulaire.pdf
+    │   │   │   │   │   ├── Regulation-du-cycle-cellulaire-FMT2022.pdf
+    │   │   │   │   │   ├── Replication_de_l_ADN_2023.pdf
+    │   │   │   │   │   └── SYS_ENDO_MEMBRANIAIRE_COURS_COMPLET_2023.pdf
+    │   │   │   │   └── Liens_utiles
+    │   │   │   │       └── Biologie-Cellulaire-Hachette.pdf
+    │   │   │   └── POLY-PCEM1-THEME-2.pdf
+    │   │   ├── Th_3
+    │   │   │   ├── Anatomie_Generale
+    │   │   │   │   ├── Appareil_Digestif
+    │   │   │   │   │   └── Cours-Anatomie-generale-appareil-Digestif-Theme-3.pdf
+    │   │   │   │   ├── Appareil_d_innervation
+    │   │   │   │   │   └── Neuroanatomie_TH_III_FMT_Nadhir_KARMANI.pdf
+    │   │   │   │   └── Liens_utiles
+    │   │   │   │       └── Pernkopf - Atlas d'anatomie humaine Vol. 1.pdf
+    │   │   │   ├── Embryologie
+    │   │   │   │   ├── gametogenese_et_fecondation.pdf
+    │   │   │   │   ├── Les_annexes_embryonnaires.pdf
+    │   │   │   │   ├── S1_et_S2_Develop_Embryo_FMT_2021.pdf
+    │   │   │   │   └── S3_et_S4_du_developp_Embryonnaire_FMT_2021_1.pdf
+    │   │   │   ├── Histologie
+    │   │   │   │   ├── Les_epitheliums_glandulaires_glandes_composees.pdf
+    │   │   │   │   ├── Les_epitheliums_glandulaires_glandes_exocrines_simples.pdf
+    │   │   │   │   ├── Liens_utiles
+    │   │   │   │   │   └── Atlas-en-couleur-dhistologie.pdf
+    │   │   │   │   ├── Resume.pdf
+    │   │   │   │   ├── TH3-COURS-1-2023-2024.pdf
+    │   │   │   │   ├── TH3-COURS-2-2023-2024-HAMMAMI-IMEN.pdf
+    │   │   │   │   ├── Tissu-conjonctif-Imen-Hammami-2023-2024.pdf
+    │   │   │   │   └── TP_histo
+    │   │   │   │       ├── jejunum_entherocytes.pdf
+    │   │   │   │       ├── Larynx.pdf
+    │   │   │   │       ├── oesophage.pdf
+    │   │   │   │       ├── peau.pdf
+    │   │   │   │       ├── T_C-new-PP.pdf
+    │   │   │   │       ├── uretere.pdf
+    │   │   │   │       ├── vessie_pleine.pdf
+    │   │   │   │       └── vessie_vide.pdf
+    │   │   │   └── POLY-PCEM1-THEME-3.pdf
+    │   │   ├── Th_4
+    │   │   │   ├── Dosimetrie.pdf
+    │   │   │   ├── Image_radiologique_2023.pdf
+    │   │   │   ├── Interactions_des_rayonnements_ionisants_avec_la_matiere.pdf
+    │   │   │   ├── Les-detecteurs-des-rayonnements-ionisants-Ilhem21221.pdf
+    │   │   │   ├── Liens_utiles
+    │   │   │   │   ├── Fiche_memo_biophysique_4_2018.pdf
+    │   │   │   │   └── IRM.pdf
+    │   │   │   ├── Medecine_nucleaire.pdf
+    │   │   │   ├── POLY-PCEM1-THEME-4.pdf
+    │   │   │   ├── Radioactivite
+    │   │   │   │   └── Correction_test_poly
+    │   │   │   │       └── Th4_Biophysique_Rayons_X_Evaluation_Formative_Corrigee.pdf
+    │   │   │   ├── TDM_novembre_2023.pdf
+    │   │   │   ├── TEP.pdf
+    │   │   │   └── Theme_4_Resume.pdf
+    │   │   ├── Th_5A
+    │   │   │   ├── Anatomie
+    │   │   │   │   ├── Anatomie-epaule-2023.pdf
+    │   │   │   │   ├── Avantbras
+    │   │   │   │   │   └── myologie_de_l_avantbras.pdf
+    │   │   │   │   ├── coude
+    │   │   │   │   │   └── COUDE_ET_PRONO-SUPINATION_2.pdf
+    │   │   │   │   ├── Coupes.pdf
+    │   │   │   │   ├── creux_axillaire.pdf
+    │   │   │   │   ├── epaule
+    │   │   │   │   │   ├── Arthrologie-Myologie-AF-Epaule-2021final.pdf
+    │   │   │   │   │   └── COMPLEXE_ARTICULAIRE_DE_L_EPAULE.pdf
+    │   │   │   │   ├── INNERVATION_DU_MEMBRE_SUPERIEUR.pdf
+    │   │   │   │   ├── Liens_utiles
+    │   │   │   │   │   ├── Atlas D'Anatomie Humaine.pdf
+    │   │   │   │   │   └── Membre_Superieur-Atlas-Netter-19.pdf
+    │   │   │   │   ├── Osteologie
+    │   │   │   │   │   └── 1_2_3_4_5_6-Osteologie-du-Membre-Superieur.pdf
+    │   │   │   │   ├── TP_Osteo
+    │   │   │   │   │   └── Th5A_Anatomie_TP_Osteologie_Membre_Superieur.pdf
+    │   │   │   │   └── Vascularisation_Membre_sup
+    │   │   │   │       └── Vascularisation_MS.pdf
+    │   │   │   ├── Biophysique
+    │   │   │   │   ├── 4_Problemes_biomecaniques_corriges.pdf
+    │   │   │   │   ├── BIOMECANIQUE_DU_MUSCLE.pdf
+    │   │   │   │   ├── dipole-electrique.pdf
+    │   │   │   │   ├── Olfa_Electrophysio_du_nerf.pdf
+    │   │   │   │   └── Revision-ThVa-21-22.pdf
+    │   │   │   ├── Embryologie
+    │   │   │   │   └── embryo_squelette-membres_novembre_2023.pdf
+    │   │   │   └── Histologie
+    │   │   │       ├── Les_tissus_musculaires_cardiaque_et_lisse.pdf
+    │   │   │       ├── Liens_utiles
+    │   │   │       │   └── Module-locomoteur-Chapitre-3-Histologie-des-os-extrait-4.pdf
+    │   │   │       ├── Ossification.pdf
+    │   │   │       ├── Tissu_musclaire_strie_squelettique.pdf
+    │   │   │       ├── Tissus_cartilagineux_et_osseux.pdf
+    │   │   │       └── TP-Le-tissus-musculaire.pdf
+    │   │   └── Th_7
+    │   │       ├── Agressions_bacteriennes
+    │   │       │   ├── Cellule_bacterienne.pdf
+    │   │       │   ├── Croissance_et_nutrition_bacterienne.pdf
+    │   │       │   ├── Facteurs_de_pathogenicite.pdf
+    │   │       │   └── Genetique_bacterienne.pdf
+    │   │       ├── Agressions_chimiques
+    │   │       │   ├── Agressions_chimiques_en_milieu_urbain_1ere_partie.pdf
+    │   │       │   ├── Agressions_chimiques_en_milieu_urbain_et_rural_2eme_partie.pdf
+    │   │       │   └── LES-AGRESSIONS-ALIMENTAIRES.pdf
+    │   │       ├── Agressions_parasitaires
+    │   │       │   ├── C1-et-C2-Agressions-parasitaires.pdf
+    │   │       │   ├── C3-et-c4-Cycle-epidemiologique_Prophylaxie-diagnostic.pdf
+    │   │       │   └── Parasitisme-parasite_et_classification.pdf
+    │   │       ├── Agressions_psychiques
+    │   │       │   ├── Agressions_psychiques_novembre_2023.pdf
+    │   │       │   └── Agressions-psychiques-thVII-2.pdf
+    │   │       ├── Agressions_virales
+    │   │       │   ├── Bacteriophage.pdf
+    │   │       │   ├── Generalites_sur_les_virus.pdf
+    │   │       │   ├── Infection_virale.pdf
+    │   │       │   └── Les_examens_virologiques_en_pratique_medicale.pdf
+    │   │       ├── POLY-PCEM1-THEME-7.pdf
+    │   │       └── Risques_en_epidemiologie_et_methodes_de_prevention
+    │   │           ├── Epidemiologie_et_prevention_des_infections_nosocomiales.pdf
+    │   │           ├── Epidemiologie_et_prophylaxie_des_maladies_non_transmissibles.pdf
+    │   │           ├── Epidemiologie_et_prophylaxie_des_maladies_transmissibles.pdf
+    │   │           ├── La_Prevention_dans_le_domaine_de_la_sante.pdf
+    │   │           ├── Le_risque_concept_et_application_dans_le_domaine_de_la_sante.pdf
+    │   │           └── Methodologie_epidemiologique.pdf
+    │   ├── Enregistrements
+    │   │   ├── Th1
+    │   │   │   └── Theme_I_-_SP_Les_objectifs_de_sante_W_AISSI_2020-11-09_at_01-19_GMT-8_-_Google_Drive.mp4
+    │   │   ├── Th2a
+    │   │   │   └── Theme_IIa_-_BC_Proteines_Z_Balkis_bouhaouala_2020-11-12_at_01-04_GMT-8_-_Google_Drive.mp4
+    │   │   ├── Th3
+    │   │   │   ├── Anatomie
+    │   │   │   ├── Embryo
+    │   │   │   └── Histo
+    │   │   └── Th4
+    │   │       └── Theme_IV_2_Novembre_2020_L_image_radiologique_conventionnelle_mp4_-_Google_Drive.mp4
+    │   └── Sessions
+    │       ├── Th_1
+    │       │   ├── Pont_TH1
+    │       │   │   ├── Ethique_medicale
+    │       │   │   │   └── Th1_Ethique_Medicale_Bioethique_et_Deontologie.pdf
+    │       │   │   ├── Formation_medicale
+    │       │   │   │   └── Th1_Pedagogie_et_Formation_Medicale_Q_R.pdf
+    │       │   │   ├── Histoire_de_la_medecine
+    │       │   │   │   └── Th1_Histoire_de_la_Medecine_Generale_et_en_Tunisie.pdf
+    │       │   │   ├── Remarques.png
+    │       │   │   ├── SH_I_N.pdf
+    │       │   │   ├── Synapse
+    │       │   │   │   ├── Formation_med.pdf
+    │       │   │   │   ├── histoire_de_la_medecine.pdf
+    │       │   │   │   └── Sante_pop.pdf
+    │       │   │   ├── TD_ethique_medicale_PCEM_1_Nov_2020.pdf
+    │       │   │   └── th1Janvier2022-1.pdf
+    │       │   ├── Questions_theme_1_SP_janvier_2016.pdf
+    │       │   ├── Resume_formation_medicale
+    │       │   │   └── Th1_Sante_Ethique_Societe_Fiches_Vignettes_et_Sessions.pdf
+    │       │   ├── th1_Janvier2022.pdf
+    │       │   └── Th1_Sante_Population_Janvier_2016.pdf
+    │       ├── Th_2A
+    │       │   ├── 2a_2014.pdf
+    │       │   ├── 2a_epreuve_2014_juillet.pdf
+    │       │   ├── 2a_jan_2021.pdf
+    │       │   ├── Correction_Des_Tests_D_evaluation_Glucides_Lipides.pdf
+    │       │   ├── Examen_IIa_Controle_2021_correction.pdf
+    │       │   ├── Grille_de_correction.pdf
+    │       │   ├── IIa-Jan-2019-Dr_-Med-Abdelkarim.pdf
+    │       │   ├── QCM_de_Biologie_Cellulaire_FK.pdf
+    │       │   ├── TESTS-EVALUATIONS_PEPTIDES_PROTEINES_-2021.pdf
+    │       │   ├── Th2A_Epreuve_Juillet_2014.pdf
+    │       │   ├── Theme-2A-Juin-2019.pdf
+    │       │   └── themeIIa2020-corrige-Mohamed-ABDELKARIM.pdf
+    │       ├── Th_3
+    │       │   ├── 2010-_2023.pdf
+    │       │   ├── easy_3-20240613T152840Z-001
+    │       │   │   └── easy_3
+    │       │   │       └── Anatomie_Viscerale_Easy_Three_SCOME_Schemas_QCM.pdf
+    │       │   ├── examens_tp.pdf
+    │       │   ├── QCM_Anatomie.pdf
+    │       │   ├── Session-de-controle-th3.pdf
+    │       │   └── Session_de_controle_th3.pdf
+    │       ├── Th_4
+    │       │   └── 2009-_2023.pdf
+    │       ├── Th_5A
+    │       │   ├── Correction_TD_Biophysique_5a.pdf
+    │       │   ├── Exemple-TP-osteologie.pdf
+    │       │   ├── Revision_de_lanatomie_du_membre_superieur.pdf
+    │       │   ├── revision_membre_superieur.pdf
+    │       │   ├── Schemas_Va_a_Legender
+    │       │   │   └── Th5A_Anatomie_Membre_Superieur_Schemas_A_Legender.pdf
+    │       │   ├── Sessions
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2016_corrige.pdf
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2016.pdf
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2017_corrige.pdf
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2017.pdf
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2018_corrige.pdf
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2018.pdf
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2019_corrige.pdf
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2019.pdf
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2020_corrige.pdf
+    │       │   │   ├── Anatomie-Th_Va_Janvier_2020.pdf
+    │       │   │   ├── Correction_Epreuve_5a_2015.pdf
+    │       │   │   ├── epreuve_5a_2015.pdf
+    │       │   │   └── Th5A_Anatomie_Janvier_2015_Corrige.pdf
+    │       │   ├── TP_Corriges
+    │       │   │   └── Examens_TP.pdf
+    │       │   └── TP_Osteologie
+    │       │       ├── Osteologie_du_Membre_Superieur.pdf
+    │       │       ├── QCM_Anatomie.pdf
+    │       │       └── Revision_Membre_Superieur.pdf
+    │       ├── Th_7
+    │       │   ├── 2019-_2023.pdf
+    │       │   ├── Epreuve_Janvier_2013.pdf
+    │       │   ├── Epreuve_Janvier_2014.pdf
+    │       │   ├── Epreuve_Janvier_2016.pdf
+    │       │   ├── Epreuve_Juillet_2013.pdf
+    │       │   ├── Epreuve_Methodes_De_Prevention_Janvier_2016.pdf
+    │       │   ├── interseven
+    │       │   │   └── Th7_Pathologies_et_Agressions_Resume_Complet.pdf
+    │       │   ├── MPC-th7.pdf
+    │       │   ├── PCEM1_Theme_7_Methodes_en_prevention_session_Janvier_2016_verifie.pdf
+    │       │   ├── TH7_1.pdf
+    │       │   ├── TH7_2.pdf
+    │       │   ├── Th7_Agression_Microbiologique_Janvier_2014_P1.pdf
+    │       │   ├── Th7_Agression_Microbiologique_Janvier_2014_P2.pdf
+    │       │   ├── Th7_Agression_Microbiologique_Janvier_2016.pdf
+    │       │   ├── Th7_Epreuve_Janvier_2013.pdf
+    │       │   ├── Th7_Epreuve_Juillet_2013.pdf
+    │       │   ├── Th7-Janvier_2016-corige_final_agression_bacteriologiques.pdf
+    │       │   └── Th7_Methode_Prevention_Janvier_2016.pdf
+    │       └── Tous_les_themes_Janvier_2023.pdf
+    └── Semestre_2
+        ├── Diapos
+        │   ├── Anglais
+        │   │   ├── Poly_corrige
+        │   │   │   ├── unit_1
+        │   │   │   │   └── Anglais_Medical_PCEM1_Unit1_Getting_Started.pdf
+        │   │   │   ├── unit_2
+        │   │   │   │   └── Anglais_Medical_PCEM1_Dermatology_Modals_and_Patient_Condition.pdf
+        │   │   │   ├── unit_3
+        │   │   │   │   └── Anglais_Medical_PCEM1_Unit3_Expressing_Location.pdf
+        │   │   │   ├── unit_4
+        │   │   │   │   └── Anglais_Medical_PCEM1_Unit4_Genetics_and_Comparison.pdf
+        │   │   │   ├── unit_5
+        │   │   │   │   └── Anglais_Medical_PCEM1_Unit5_Listening_Dialogue_Past_Tenses.pdf
+        │   │   │   └── unit_6
+        │   │   │       └── Anglais_Medical_PCEM1_Unit6_Gender_Bias_and_Hospital_Vocab.pdf
+        │   │   └── POLY-PCEM1-ANGLAIS.pdf
+        │   ├── Informatique
+        │   │   ├── Correction_du_QCM_D2.pdf
+        │   │   ├── Pratique
+        │   │   │   ├── D3_PPT
+        │   │   │   │   ├── Exercice_Powerpoint.pdf
+        │   │   │   │   ├── logo.png
+        │   │   │   │   ├── systemes_1.mp4
+        │   │   │   │   ├── systemes.mp4
+        │   │   │   │   └── TD3.pdf
+        │   │   │   ├── D3_TAB
+        │   │   │   │   ├── Book1.pdf
+        │   │   │   │   ├── Classeur.pdf
+        │   │   │   │   ├── enonce-excel_1.pdf
+        │   │   │   │   ├── enonce-excel.pdf
+        │   │   │   │   └── tableau-excel.xls
+        │   │   │   ├── D3_TXT
+        │   │   │   │   ├── avec
+        │   │   │   │   │   ├── anopheles_1.pdf
+        │   │   │   │   │   ├── anopheles.pdf
+        │   │   │   │   │   ├── logo.pdf
+        │   │   │   │   │   ├── paludisme.jpg
+        │   │   │   │   │   ├── paludisme.pdf
+        │   │   │   │   │   └── Plasmodium_ovale.png
+        │   │   │   │   ├── paludisme1.pdf
+        │   │   │   │   ├── paludisme.pdf
+        │   │   │   │   └── TP-D3-TXT.pdf
+        │   │   │   ├── QCM_D1.pdf
+        │   │   │   ├── QCM_D2.pdf
+        │   │   │   ├── TP4
+        │   │   │   │   ├── TP4_2.pdf
+        │   │   │   │   ├── TP4.pdf
+        │   │   │   │   ├── TP-D4.pdf
+        │   │   │   │   └── TP-D4-pubmed.pdf
+        │   │   │   └── TP-D5.pdf
+        │   │   ├── QCM-D2.pdf
+        │   │   └── Theorique
+        │   │       ├── 2CN-D1-RESUME.pdf
+        │   │       ├── 2CN-D5.pdf
+        │   │       └── doc-D4.pdf
+        │   ├── Secourisme
+        │   │   ├── 01-Role_du_secouriste_et_structures_de_secours.pdf
+        │   │   ├── 02-Les_detresses_neurologiques.pdf
+        │   │   ├── Arret_Cardiaque.pdf
+        │   │   ├── arret_cardiaque_secourisme.pdf
+        │   │   ├── Corrige_Secourisme_part2.pdf
+        │   │   ├── Cours_ORSEC_PCEM1.pdf
+        │   │   ├── Les_detresses_respiratoires.pdf
+        │   │   ├── secourisme_Corrige_2009.pdf
+        │   │   └── SuperBook_by_Associa-Med.pdf
+        │   ├── Th_2B
+        │   │   ├── Bioenergitique
+        │   │   │   └── Th2B_Biochimie_Metabolisme_Energetique_Krebs_Chaine_Respiratoire_Souheil.pdf
+        │   │   ├── FM_Th2b_BC.pdf
+        │   │   ├── Metabolisme_glucidique
+        │   │   │   ├── 01-Glycolyse.pdf
+        │   │   │   ├── 02-VPP_et_NGG_correction_tests.pdf
+        │   │   │   ├── 02-VPP_et_NGG.pdf
+        │   │   │   └── Complements
+        │   │   │       └── VPP_et_NGG.pdf
+        │   │   ├── Metabolisme_intermediaire
+        │   │   │   ├── Correction_des_tests
+        │   │   │   │   └── Biochimie_Metabolisme_Intermediaire_Exercices_et_QCM.pdf
+        │   │   │   └── Exercices_metabolisme_intermediaire.pdf
+        │   │   ├── Metabolisme_lipidique
+        │   │   │   ├── 01-Biosynthese_des_lipides_2020.pdf
+        │   │   │   ├── 02-Degradation_des_lipides.pdf
+        │   │   │   └── Complements
+        │   │   │       ├── Corps_cetoniques.pdf
+        │   │   │       └── Metabolisme_des_AG.pdf
+        │   │   ├── Metabolisme_nucleotidique
+        │   │   │   ├── 01-Les_purines.pdf
+        │   │   │   ├── Exercice_pyrimidines.pdf
+        │   │   │   └── Exercices_Purines.pdf
+        │   │   └── Metabolisme_protidique
+        │   │       └── evaluation_AA_2020.pdf
+        │   ├── Th_5B
+        │   │   ├── Anatomie
+        │   │   │   ├── Anatomie-de-la-colonne-vertebrale-Dr-Nefiss.pdf
+        │   │   │   ├── Copie_de_Resume_mbre_inf.pdf
+        │   │   │   └── Copie_de_types_d_articulations.pdf
+        │   │   ├── Biochimie
+        │   │   │   ├── Tissu-cartilagineux-et-osseux.pdf
+        │   │   │   └── tissu_MUSCULAIRE.pdf
+        │   │   └── Physiologie
+        │   │       └── Physiologie-de-la-locomotricite-deuxieme-partie.pdf
+        │   ├── Th_6
+        │   │   ├── Biochimie
+        │   │   │   ├── 01-Introduction_a_la_biochimie_clinique.pdf
+        │   │   │   ├── 02-Exploration_biochimique_du_metabolisme_hydromineral_Seance1.pdf
+        │   │   │   ├── 02-Exploration_biochimique_du_metabolisme_hydromineral_Seance2.pdf
+        │   │   │   ├── Complements
+        │   │   │   │   ├── 05-Metablosime_acidobasique_C1.pdf
+        │   │   │   │   ├── 05-Metabolisme_acidobasique_C2.pdf
+        │   │   │   │   └── 06-Exploration_fonctionnelle_du_metabolisme_glucidique.pdf
+        │   │   │   ├── Composes_azotes_non_proteiques.pdf
+        │   │   │   ├── Exploration_biochimique_des_enzymes_seriques
+        │   │   │   │   ├── Biochimie_Enzymologie_Clinique_Diagnostic.pdf
+        │   │   │   │   ├── enzymes_seriques_Cas_clinique_corrige_N_1.pdf
+        │   │   │   │   ├── enzymes_seriques_Cas_clinique_corrige_N_2.pdf
+        │   │   │   │   ├── enzymes_seriques_Cas_clinique_corrige_N_3.pdf
+        │   │   │   │   ├── enzymes_seriques_Cas_clinique_corrige_N_4.pdf
+        │   │   │   │   └── enzymes_seriques_Cas_clinique_corrige_N_5.pdf
+        │   │   │   ├── Exploration_de_la_glycemie.pdf
+        │   │   │   ├── Exploration_du_metabolisme_acido-basique.pdf
+        │   │   │   ├── Exploration_du_metabolisme_des_lipoproteines.pdf
+        │   │   │   └── FM-bioch-6-2018.pdf
+        │   │   ├── Biophysique
+        │   │   │   ├── 02-La_diffusion.pdf
+        │   │   │   ├── 03-Les_proprietes_colligatives.pdf
+        │   │   │   ├── 04-Les_proprietes_electriques.pdf
+        │   │   │   ├── 05-Les_phenomenes_de_Surface.pdf
+        │   │   │   ├── 06-pH_des_solutions_tampons_et_des_ampholytes.pdf
+        │   │   │   ├── 07-Le_diagramme_de_Davenport_Exercices.pdf
+        │   │   │   ├── 08-Les_potentiels_d_electrodes.pdf
+        │   │   │   ├── 09-Physico-chimie_des_macromolecules_Exercices.pdf
+        │   │   │   ├── 10-Phenomene_de_DONNAN_Exercices.pdf
+        │   │   │   ├── 10-Phenomene_de_DONNAN.pdf
+        │   │   │   ├── 11-Applications_medicales.pdf
+        │   │   │   ├── Correction_poly_Th6_BP.pdf
+        │   │   │   ├── Digramme_de_Davenport_2023-2024.pdf
+        │   │   │   └── L_eau_et_les_solutions.pdf
+        │   │   ├── Embryologie
+        │   │   │   ├── Hematopoiese-janvier-2024.pdf
+        │   │   │   └── TP_cytologie_medullaire.pdf
+        │   │   ├── Hematologie
+        │   │   │   └── Physiologie_de_l_hemostase.pdf
+        │   │   └── Histologie
+        │   │       ├── GLOBULES-BLANCS-2024-1-1.pdf
+        │   │       └── Globules_rouges_et_Plaquettes.pdf
+        │   ├── Th_8
+        │   │   ├── Anatomie
+        │   │   │   ├── Anatomie_des_VAS.pdf
+        │   │   │   └── Anatomie_du_diaphragme.pdf
+        │   │   ├── Biochimie
+        │   │   │   ├── 01-L_hemoglobine.pdf
+        │   │   │   ├── 02-Le_fer_metabolisme_et_exploration.pdf
+        │   │   │   └── 03-Vitamine_B12_metabolisme_et_exploration.pdf
+        │   │   ├── Embryologie
+        │   │   ├── Histologie
+        │   │   │   ├── Histologie_de_l_appareil_respiratoire.pdf
+        │   │   │   └── tableaux_histo_8.pdf
+        │   │   ├── Physiologie
+        │   │   │   ├── 01-Mecanique_ventilatoire.pdf
+        │   │   │   ├── 04-Transport_des_gaz.pdf
+        │   │   │   ├── 05-Formation_du_sang_arteriel.pdf
+        │   │   │   ├── 06-Exploration_de_la_ventilation.pdf
+        │   │   │   ├── 07-Controle_de_la_ventilation_2020.pdf
+        │   │   │   ├── 07-Controle_de_la_ventilation.pdf
+        │   │   │   ├── 08-Bronchomotricite.pdf
+        │   │   │   ├── 09-Adaptation_respiratoire_a_l_effort.pdf
+        │   │   │   ├── 09-Adaptations_respiratoires_a_lexercice.pdf
+        │   │   │   └── Liens_utiles
+        │   │   │       └── physiologie-humaine-sherwood.pdf
+        │   │   └── POLY-PCEM1-THEME-8.pdf
+        │   └── Th_9
+        │       ├── Anatomie
+        │       │   ├── Anatomie_du_mediastin.pdf
+        │       │   ├── Anatomie_Theme_IX_Marghli_Adel.pdf
+        │       │   ├── Anatomie_Theme_IX_P1_Dr_Ghariani_MZ_2014.pdf
+        │       │   ├── Anatomie_Theme_IX_P2_Dr_Ghariani_MZ_2014.pdf
+        │       │   ├── Anatomie_Theme_IX_P3_Dr_Ghariani_MZ_2014.pdf
+        │       │   ├── Anatomie_Theme_IX_P4_Dr_Ghariani_MZ_2014.pdf
+        │       │   ├── Anatomie_Theme_IX_P5_Dr_Ghariani_MZ_2014.pdf
+        │       │   ├── Configuration_Ext_Coeur_Droit.pdf
+        │       │   ├── Liens_utiles
+        │       │   │   ├── Anatomie_du_thorax.pdf
+        │       │   │   └── FM-Anat-Th9.pdf
+        │       │   ├── vascularisation_innervation_et_lymphatiques.pdf
+        │       │   └── vascularisation-innervation-lymphatiques.pdf
+        │       ├── Biophysique
+        │       │   ├── BP9_resume.pdf
+        │       │   ├── Correction_des_tests_des_fluides_th9_page_48
+        │       │   │   └── Biophysique_Fluides_Tests_Corriges_Poiseuille_Bernoulli.pdf
+        │       │   ├── Diaporama_Fluides_Parfaits.pdf
+        │       │   ├── Diaporama_Hemodynamique.pdf
+        │       │   ├── Dr_Laouini_cours_hemo_version_etudiants_protected.pdf
+        │       │   ├── FLUIDES_PARFAITS.pdf
+        │       │   ├── Fluides_reeels_Cours.pdf
+        │       │   ├── Fluides_reeels_Exercices_Corriges.pdf
+        │       │   └── fluid_reel.pdf
+        │       ├── Embryologie
+        │       │   ├── Embryologie_cardio-vasculaire_2020.pdf
+        │       │   └── Embryologie_cardio-vasculaire_2024.pdf
+        │       ├── Histologie
+        │       │   ├── histo_9_partie_1.pdf
+        │       │   ├── histo_9_partie_2.pdf
+        │       │   ├── histo_9_partie_3.pdf
+        │       │   ├── Histologie-des-vaisseaux-saunguins-Hammami-Imen-20_240227_191017.pdf
+        │       │   └── Histologie-du-c_ur-et-des-vx-lymphatiques-2023-2024_2.pdf
+        │       ├── Physiologie
+        │       │   ├── 01-Proprietes_electriques_du_coeur_Ayed.pdf
+        │       │   ├── 01-Proprietes_electriques_du_coeur_Mekki.pdf
+        │       │   ├── 01-Proprietes_electriques_du_coeur_Tekaya.pdf
+        │       │   ├── 02-Electrocardiogramme_MK.pdf
+        │       │   ├── 02-Electrocardiogramme_version_1.pdf
+        │       │   ├── 02-Electrocardiogramme_version_2.pdf
+        │       │   ├── 03-Phenomenes_mecaniques_cardiaques.pdf
+        │       │   ├── 04-Debit_cardiaque_Mekki.pdf
+        │       │   ├── 05-Systeme_a_haute_pression_Mekki.pdf
+        │       │   ├── 06-La_pression_arterielle_moyenne_Baati.pdf
+        │       │   ├── 06-La_pression_arterielle_moyenne_Mekki.pdf
+        │       │   ├── 07-Systeme_a_basse_pression_Mekki.pdf
+        │       │   ├── 08-La_circulation_coronaire_Baati_commente.pdf
+        │       │   ├── 09-Adaptation_cardio-vasculaire_a_l_exercice_Mekki.pdf
+        │       │   ├── Adaptation-cardio-vasculaire-2023-DR-AYED_1.pdf
+        │       │   ├── Circulation.pdf
+        │       │   ├── Complements
+        │       │   │   ├── Back_To_Physio-_La_courbe_de_pression_arterielle.pdf
+        │       │   │   ├── cardiophysio4.pdf
+        │       │   │   └── ED-Circulation-Sanguine-Oct-2019_99c926408e9f85c11c152eab831717c7.pdf
+        │       │   ├── Le-Debit-Cardiaque-2024_pptx.pdf
+        │       │   ├── Proprietes_electriques_du_coeur.pdf
+        │       │   └── Systeme_a_basse_pression.pdf
+        │       └── POLY-PCEM1-THEME-9.pdf
+        ├── Enregistrements
+        │   ├── Informatique
+        │   │   ├── Excel
+        │   │   │   └── TP_Informatique-_Excel_2020-11-05_at_05-35_GMT-8_-_Google_Drive.mp4
+        │   │   └── Excel_et_Pubmed_expliques_par_un_etudiant
+        │   ├── Th_2B
+        │   │   └── 2B_OMAR.mp4
+        │   ├── Th_5B
+        │   ├── Th_6
+        │   │   ├── BC
+        │   │   │   └── 03-Exploration_biochimique_des_composes_proteiques.pdf
+        │   │   └── BP
+        │   │       ├── 07-Le_diagramme_de_Davenport.pdf
+        │   │       └── Diaporama_DONNAN.pdf
+        │   ├── Th_8
+        │   │   ├── ANAT
+        │   │   └── PHYSIO
+        │   └── Th_9
+        │       ├── ANAT
+        │       └── PHYSIO
+        └── Sessions
+            ├── Anglais
+            │   ├── Session_Mai_2023
+            │   │   └── Anglais_Medical_PCEM1_Examen_Mai_2023_Corrige.pdf
+            │   └── sessions_anglais_medical.pdf
+            ├── Secourisme
+            │   ├── Ex_de_Revision_-_correction_QE
+            │   │   ├── Corrige_secourisme_2009_1.pdf
+            │   │   ├── Corrige_secourisme_2009_2.pdf
+            │   │   └── Secourisme_Examen_2009_Corrige.pdf
+            │   ├── QE_corriges_95_vrais
+            │   │   └── Secourisme_Epreuve_Examen_Corrigee.pdf
+            │   ├── secourisme_Corrige_2009.pdf
+            │   ├── SECOURISME_detresse_neurologique_ppt2_1.pdf
+            │   ├── SECOURISME_detresse_neurologique_ppt2.pdf
+            │   ├── Secourisme_Fac_D_Resp_1_1.pdf
+            │   ├── secourisme.pdf
+            │   ├── Secourisme_QCM_Tests_et_Annales_Corriges.pdf
+            │   └── SuperBook_by_Associa-Med.pdf
+            ├── Th_2B
+            │   ├── 2015
+            │   │   └── Biochimie_Metabolisme_Annales_Questions_Corrigees.pdf
+            │   ├── 2017
+            │   │   └── Th2B_Biochimie_FMT_2017-2018_Revision_Metabolisme_Corrige.pdf
+            │   ├── 2b_exercices.pdf
+            │   ├── 2B_juillet_2014.pdf
+            │   ├── 2b.pdf
+            │   ├── correction_1.pdf
+            │   ├── CORRECTION_TIIb_VPP_NGG.pdf
+            │   ├── Doc1_1.pdf
+            │   ├── doc_2b.pdf
+            │   ├── examen_2b_2014.pdf
+            │   ├── FM-bioch-2b-2018.pdf
+            │   ├── MI_2020PF.pdf
+            │   ├── Session_Th2b_2014.pdf
+            │   ├── TD2_corpscetoniques.pdf
+            │   ├── Th2B_Biochimie_FMT_2015-2016_TD_Metabolisme_Intermediaire.pdf
+            │   ├── Th2B_Epreuve_Juillet_2014.pdf
+            │   └── Theme_2b.pdf
+            ├── Th_5B
+            │   ├── Copie_de_Sessions_Vb_18-19-20.pdf
+            │   ├── EPREUVE_DU_THEME_Vb_1.pdf
+            │   ├── Locomotricite-Physiologie.pdf
+            │   ├── Q1.pdf
+            │   ├── Q2.pdf
+            │   ├── Q3.pdf
+            │   ├── Sessions_Vb.pdf
+            │   └── Th5B_Session_Principale_Mai_2017.pdf
+            ├── Th_6
+            │   ├── Baatout-VI-control-18.pdf
+            │   ├── BC6_contr_2014.pdf
+            │   ├── BC6_princ_2014.pdf
+            │   ├── bp6
+            │   │   └── Th6_Biophysique_des_Solutions_Fiche_Formules.pdf
+            │   ├── BP_6_juillet_2014.pdf
+            │   ├── BP_6_princ_2014.pdf
+            │   ├── Correction-Th6-controle-2019.pdf
+            │   ├── Correction-Th6-Controle-2020.pdf
+            │   ├── Correction-Th6-principale-2018.pdf
+            │   ├── CORR-Examen-Th6-sessionP2018-fin.pdf
+            │   ├── hematopoiese.pdf
+            │   ├── Histo-hemato_6_princ_2013.pdf
+            │   ├── Histo-hemato_princ_2014.pdf
+            │   ├── solutions.pdf
+            │   ├── Th6_Biochimie_Principale_2014.pdf
+            │   ├── Th6_Biochimie_Rattrapage_2014.pdf
+            │   ├── Th6_Biophysique_Juillet_2014.pdf
+            │   ├── Th6_Biophysique_Principale_Janvier_2014.pdf
+            │   ├── Th6_Histo_Hemato_Principale_2013.pdf
+            │   ├── Th6_Histo_Hemato_Principale_2014.pdf
+            │   └── thVI_Pr2018.pdf
+            ├── Th_8
+            │   ├── Les_incollables_Th8.pdf
+            │   ├── session_2013_Th8_Physio.pdf
+            │   └── session_8
+            │       └── Th8_Physiologie_Respiratoire_Examen_Mai_2016_Correction.pdf
+            └── Th_9
+                ├── Les_incollables_Th9
+                │   ├── 1-_Electrophysiologie_Th9.pdf
+                │   ├── 2-_ECG_Th9.pdf
+                │   ├── 3-Debit_Cardiaque_Th9.pdf
+                │   ├── 4-La_Circulation_Th9.pdf
+                │   └── 5-Adaptation_a_l_effort_Th9.pdf
+                ├── QCMs_ANA_CardioVasc_14.pdf
+                ├── QUESTIONS_RESIDANAT.pdf
+                ├── Revision_th9_2021.pdf
+                ├── Revision_th9_2022.pdf
+                ├── Revision_th9_2023.pdf
+                ├── Revision_th9_2024.pdf
+                ├── Revision_th9.pdf
+                ├── session_th9_2019_Physio.pdf
+                ├── Session_th9.pdf
+                └── Session_th9_principal_2020.pdf
+
+168 directories, 452 files
