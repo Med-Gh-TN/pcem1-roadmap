@@ -1,9 +1,9 @@
 <div align="center">
-
-# 🩺 PCEM1 Medical Learning Roadmap & AI Workstation
+  
+# 🎓 ATLAS — Aggregated Tunisian Learning & Academic System
 
 <p align="center">
-  <b>Portail d'Étude Interactif & Assistant IA pour les Étudiants en Médecine (FMT Tunisia)</b>
+  <b>Universal Academic Workstation, Multi-Program Curriculum Roadmap & AI Tutor</b>
 </p>
 
 [![Live Production](https://img.shields.io/badge/Production-Live_App-0284c7?style=for-the-badge&logo=render&logoColor=white)](https://pcem1-roadmap.onrender.com)
@@ -16,7 +16,7 @@
 
 <br/>
 
-<a href="https://pcem1-roadmap.onrender.com"><strong>🚀 Accéder au Portail Live »</strong></a>
+<a href="https://pcem1-roadmap.onrender.com"><strong>🚀 Accéder au Portail Live ATLAS »</strong></a>
 
 <br/>
 
@@ -26,138 +26,135 @@
 
 ## 📖 Vue d'Ensemble (Overview)
 
-Le **PCEM1 Medical Learning Roadmap & AI Workstation** est une plate-forme web haute performance conçue sur mesure pour les étudiants en première année de médecine (PCEM1) à la **Faculté de Médecine de Tunis (FMT)**. 
+**ATLAS** (*Aggregated Tunisian Learning & Academic System*) est une plate-forme web universelle haute performance conçue pour centraliser, indexer et tutorer de façon dynamique les filières et programmes académiques en Tunisie (**Filières Médicales PCEM1, Licences Informatiques LSI, Baccalauréats Scientifique & Économique, etc.**).
 
-Elle regroupe **451 ressources pédagogiques officielles** (poly-copiés, diaporamas de cours, séances de TD/TP, enregistrements vidéo MP4, et annales d'examens) organisées dynamiquement selon la matrice officielle des coefficients et sessions de la faculté.
+À partir d'une simple arborescence de fichiers dans le répertoire `source/Original/`, ATLAS exécute un pipeline autonome de transmutation, de compression adapative et d'indexation taxonomique pour offrir aux étudiants un espace de travail interactif scindé, alimenté par l'IA Google Gemini et un réseau CDN à latence nulle.
 
-### 🌟 Points Forts
-- 📖 **Espace de Travail Scindé (Split-Screen Workbench) :** Visionnez les supports de cours (PDF/MP4) directement via un CDN Cloudflare R2 tout en prenant des notes mnémoniques synchronisées.
-- 🤖 **Tuteur Vocale & Textuel IA (Gemini Live) :** Interaction vocale bidirectionnelle en temps réel via WebSockets (`flask-sock`), capable d'adapter ses explications aux notes de l'étudiant et d'expliquer les concepts complexes (français & darja).
-- ✨ **Génération de Fiches & QCMs Interactifs :** Création de fiches de révision HTML et de QCMs avec explications cliniques alimentée par Gemini et un système de secours dynamique (Circuit Breaker).
-- 🔥 **Gamification & Suivi de Maîtrise :** Calculateur de score pondéré par coefficient de faculté, suivi de streak quotidien avec carte thermique (GitHub-style heatmap), et timer Pomodoro intégré.
-- ⚡ **Mise à Jour Optimiste (Optimistic UI) :** Réponses d'interface instantanées (<10ms) sans rechargement de page.
+### 🌟 Points Forts & Fonctionnalités Clés
+- 🎓 **Moteur Multiprogramme Dynamique (Program Selector) :** Basculez instantanément d'une filière à une autre (`PCEM1`, `LSI2`, `Bac Science`) via un sélecteur dynamique.
+- 📅 **Navigation Périodique Adaptative :** Détection automatique des périodes académiques (Trimestres 1/2/3 pour le lycée, Semestres 1/2 pour l'université, ou Modules de spécialité).
+- ⚙️ **Pipeline Différentiel `Original ➔ Processed` :** Traitement automatique des fichiers sources. Transmutation Office vers PDF (LibreOffice) et compression adaptative des PDFs numérisés (jusqu'à -80% d'espace économisé) avec vérification mathématique d'intégrité anti-page noire.
+- 🔍 **Moteur SOTA Hybride OCRmyPDF / PyMuPDF :** Injection automatique de calques de texte OCR sur les scans d'examens et correction d'orientation (`--deskew`) pour rendre les documents consultables par l'IA.
+- 📖 **Espace de Travail Scindé (Split-Screen Workbench) :** Visionnez les supports de cours (PDF/MP4) directement via Cloudflare R2 tout en prenant des notes synchronisées.
+- 🤖 **Tuteur IA Vocale & Textuelle (Gemini Live) :** Interaction vocale bidirectionnelle en temps réel via WebSockets (`flask-sock`), adaptée aux notes et au programme actif de l'étudiant.
+- ✨ **Génération de Fiches & QCMs Interactifs :** Création de résumés HTML et de QCMs de révision alimentée par Gemini et protégée par un Circuit Breaker résilient.
+- 🔥 **Gamification & Analytics :** Calcul de progression pondérée, heatmap d'étude style GitHub, et timer Pomodoro.
 
 ---
 
 ## 🏗️ Architecture Système (3-Tier Zero-Cost Stack)
 
-L'application repose sur une architecture moderne entièrement découplée et optimisée pour fonctionner **gratuitement à 100%** en production :
-
 ```mermaid
 flowchart TD
-    subgraph Client ["Client Navigateur (Vanilla ES6 JS)"]
-        UI["Interface Dashboard & Vue Programme"]
+    subgraph Client ["Client Navigateur (Vanilla ES6 Modules)"]
+        UI["Interface Dashboard & Dynamic Roadmap"]
+        SEL["Program & Period Selector (main.js)"]
         WB["Espace de Travail Scindé (workbench.js)"]
         QP["Moteur de Quiz QCM (qcm_player.js)"]
         TUTO_UI["Tuteur IA Vocale/Textuelle (tuto.js)"]
     end
 
-    subgraph CDN ["Réseau CDN (Cloudflare R2 Storage)"]
-        R2["Bucket Public 'pcem1-assets'\n(453 Fichiers Médias - $0 Egress)"]
+    subgraph Storage ["Staging Pipeline & CDN"]
+        ORIG["source/Original/ (Fichiers Bruts)"]
+        PROC["source/Processed/ (PDFs Optimisés & OCR)"]
+        R2["Cloudflare R2 Bucket (CDN $0 Egress)"]
     end
 
-    subgraph AppServer ["Serveur d'Application (Render Web Service)"]
-        APP["app.py / Routeur Principal"]
-        GUNI["Gunicorn WSGI (2 Workers, 4 Threads)"]
-        C_ROADMAP["roadmap_routes.py"]
+    subgraph AppServer ["App Server (Flask + Python 3.12)"]
+        APP["app.py / Thread Reloader Non-Bloquant"]
+        C_ROADMAP["roadmap_routes.py (/api/programs, /api/roadmap)"]
         C_GAMIFY["gamification_routes.py"]
         C_AI["ai_routes.py"]
         C_TUTO["tuto_routes.py (WebSockets)"]
         
-        S_AI["ai_agent.py (RAG & Circuit Breaker)"]
-        S_CONV["converter_service.py (PyMuPDF / Fitz)"]
-        S_MASTERY["mastery_engine.py"]
-        S_ORG["organizer.py (Crawler R2-Aware)"]
+        S_ORG["services/organizer.py (Differential Pipeline & PDF Engine)"]
+        S_AI["services/ai_agent.py (Multi-Program RAG)"]
+        S_CONV["services/converter_service.py"]
+        S_MASTERY["services/mastery_engine.py"]
     end
 
-    subgraph DataTier ["Base de Données (Neon PostgreSQL)"]
-        PG[("Neon PostgreSQL + PgBouncer Pooler\n(resources, study_logs, theme_notes,\ncourse_summaries, qcm_history)")]
+    subgraph DataTier ["Database (Neon PostgreSQL)"]
+        PG[("Neon PostgreSQL Pooled\n(resources, study_logs, theme_notes,\ncourse_summaries, qcm_history)")]
     end
 
-    subgraph External ["APIs Externes"]
-        GEMINI["Google Gemini Studio API\n(Gemini 3.1 Flash / Gemma / Live WS)"]
+    subgraph External ["Services IA Externes"]
+        GEMINI["Google Gemini Studio API\n(Gemini 2.5 Flash / Gemma / Live WS)"]
     end
 
-    UI -->|HTTP GET /api/roadmap| C_ROADMAP
-    WB -->|Direct HTTPS Stream| R2
+    ORIG -->|Transmutation & Compression| PROC
+    PROC -->|Delta Sync Upload| R2
+
+    UI -->|HTTP GET /api/roadmap?program=...| C_ROADMAP
+    WB -->|Direct Stream| R2
     WB -->|HTTP POST /api/progress| C_ROADMAP
     QP -->|HTTP POST /api/qcm/submit| C_GAMIFY
     
     C_TUTO <-->|WebSocket /ws/tuto| TUTO_UI
-    C_TUTO <-->|Bidirectional PCM Audio / Text Stream| GEMINI
+    C_TUTO <-->|Stream Audio/Texte| GEMINI
 
     C_AI -->|SSE /api/ai/summarize, /quiz| S_AI
-    S_AI -->|Extraction RAG PDF via PyMuPDF| S_AI
-    S_AI -->|Requêtes REST / SSE| GEMINI
+    S_AI -->|Extraction RAG PDF Contextuelle| S_AI
+    S_AI -->|Requêtes LLM| GEMINI
 
-    C_ROADMAP -->|Requêtes SQL| PG
-    C_GAMIFY -->|Requêtes SQL| PG
-    C_AI -->|Cache HTML Summaries| PG
+    C_ROADMAP -->|SQL Queries| PG
+    C_GAMIFY -->|SQL Queries| PG
 
-    S_ORG -->|Sync Ressources| PG
+    S_ORG -->|Indexation Automatique| PG
     C_GAMIFY -->|Évaluation Mathématique| S_MASTERY
 ```
-
-### Détail des 3 Tiers
-1. **Tier 1 — App Server (Render) :** Hébergement Python 3.12.2 sous WSGI Gunicorn multi-threadé (`--threads 4`). Traite l'API REST, le rendu Jinja2, et les connexions WebSockets `flask-sock`.
-2. **Tier 2 — Database (Neon.tech PostgreSQL) :** Base de données serverless gérant 451 ressources de cours et les données de gamification. Utilise le pooler de connexions **PgBouncer** (`-pooler`) pour éliminer le temps de poignée de main SSL.
-3. **Tier 3 — Asset CDN (Cloudflare R2) :** Hébergement des 453 fichiers lourds (PDFs et vidéos MP4) sur le réseau mondial Cloudflare R2 avec **aucun frais d'égress (bande passante $0)**.
 
 ---
 
 ## 📁 Structure du Projet
 
 ```text
-PCEM1/
-├── app.py                      # Usine principale Flask, enregistrement des Blueprints & redirections R2
+ATLAS/
+├── app.py                      # Application Flask, WSGI Factory & Thread de crawl non-bloquant
 ├── run.py                      # Orchestrateur local autoreparateur (venv, pip, discovery de ports)
-├── requirements.txt            # Versions strictes des dépendances production
-├── .python-version             # Verrouillage du runtime Python (3.12.2)
+├── requirements.txt            # Dependency Lock (Versions strictes de production)
+├── .python-version             # Locking runtime Python (3.12.2)
 ├── .exemple.env                # Modèle des variables d'environnement
-├── .gitignore                  # Exclusion stricte des clés, venv, DB locales et fichiers medias
-├── cirucilum.txt               # Empreinte textuelle de l'ontologie du programme FMT
+├── .gitignore                  # Exclusion des clés, venv, DB locales et fichiers médias
 ├── controllers/                # Contrôleurs HTTP & WebSockets (Flask Blueprints)
 │   ├── ai_routes.py            # Endpoints SSE streaming (Quiz, Explain, Summarize)
 │   ├── gamification_routes.py  # Endpoints pour streaks, heatmap, logs d'étude et notes
-│   ├── roadmap_routes.py       # Endpoints d'indexation du programme, recherche et conversion
-│   └── tuto_routes.py          # Contrôleur WebSocket pour l'Assistant Vocal Gemini Live
+│   ├── roadmap_routes.py       # Endpoints /api/programs, /api/roadmap, search & export
+│   └── tuto_routes.py          # Contrôleur WebSocket pour Assistant Vocal Gemini Live
 ├── repository/                 # Couche d'Accès aux Données (DAL)
-│   ├── db.py                   # Gestionnaire de connexion PostgreSQL Neon (psycopg2)
-│   ├── roadmap_repo.py         # Mappings SQL pour la table resources & caches de résumés
-│   └── user_data_repo.py       # Mappings SQL pour les logs d'étude, notes et historiques QCM
+│   ├── db.py                   # Connecteur PostgreSQL Neon & Schemas Multiprogrammes
+│   ├── roadmap_repo.py         # Mappings SQL pour resources & filtres par programme
+│   └── user_data_repo.py       # Mappings SQL pour logs d'étude, notes et QCMs
 ├── services/                   # Couche Métier (Domain Services)
 │   ├── ai_agent.py             # Moteur RAG PyMuPDF, parseur TOON et Circuit Breaker Gemini
-│   ├── converter_service.py    # Service de conversion de documents Office vers PDF (LibreOffice/Fitz)
+│   ├── converter_service.py    # Service de conversion Office/PDF (LibreOffice/Fitz)
 │   ├── mastery_engine.py       # Algorithme mathématique d'évaluation de la maîtrise
-│   └── organizer.py            # Crawler d'indexation sémantique et inférence taxonomique
-├── scripts/                    # Scripts d'Infrastructure et de Migration
-│   ├── migrate_sqlite_to_neon.py # Utility de migration SQLite locale vers Neon PostgreSQL
-│   ├── upload_to_r2.py         # Bulk Uploader automatisé Boto3 vers Cloudflare R2
-│   └── update_r2_urls.py       # Transformateur de chemins DB vers les URLs CDN R2
-├── prompts/                    # Templates Jinja2 d'Ingénierie de Prompt
-│   ├── concept_explainer.jinja
-│   ├── course_summarizer.jinja
-│   ├── qcm_generator.jinja
-│   └── tuto_system_prompt.jinja
+│   └── organizer.py            # Pipeline Différentiel, OCRmyPDF & Compression Adatative
+├── scripts/                    # Scripts d'Infrastructure et de Maintenance
+│   ├── upload_to_r2.py         # Differential Delta Sync Uploader Boto3 vers Cloudflare R2
+│   ├── update_r2_urls.py       # Aligne de manière idempotente les URLs CDN en Base de Données
+│   └── reset_db.py             # Script CLI de réinitialisation complète de la base Neon
+├── source/                     # Staging Directory pour les Filières Académiques
+│   ├── Original/               # Fichiers bruts déposés par l'utilisateur (ex: PCEM1, LSI2)
+│   └── Processed/              # PDFs optimisés, transmutés et indexés prêts pour R2
 ├── static/                     # Assets Statiques Frontend
 │   ├── css/
-│   │   └── style.css           # Tokens de design Apple HIG + Glassmorphism & Heatmap CSS
+│   │   └── style.css           # Tokens de design Apple HIG, Glassmorphic UI & Heatmap CSS
 │   └── js/
 │       ├── api.js              # Client HTTP Asynchrone & Moteur Streaming SSE
-│       ├── main.js             # Moteur de rendu principal & liaison au DOM global
+│       ├── main.js             # Moteur de rendu principal & orchestrateur DOM
 │       ├── core/
-│       │   └── state.js        # Gestionnaire d'état centralisé
+│       │   └── state.js        # Gestionnaire d'état centralisé (currentProgram, activeTree)
 │       └── features/
-│           ├── gamification.js # Timers Pomodoro & calculs du Heatmap
-│           ├── qcm_player.js   # Moteur de rendu interactif des QCMs
-│           ├── roadmap.js      # Contrôleur des vues Grille & Chronologie
-│           ├── tuto.js         # Capture audio PCM 16kHz & rendu du Tuteur Vocal
-│           └── workbench.js    # Lecteur de médias scindé & mises à jour optimistes
+│           ├── gamification.js # Timers Pomodoro & calculs Heatmap
+│           ├── qcm_player.js   # Rendu interactif des QCMs
+│           ├── roadmap.js      # Vues Grille, Chronologie & Filtres par Programme
+│           ├── tuto.js         # Capture audio PCM 16kHz & Tuteur Vocal
+│           └── workbench.js    # Lecteur scindé & mises à jour optimistes (<10ms)
 └── templates/                  # Templates HTML Jinja2
-    ├── index.html              # Vue principale Single-Page Application (SPA)
+    ├── index.html              # Vue Single-Page Application (SPA) ATLAS
     ├── components/
-    │   ├── header.html         # Barre de navigation, widget Pomodoro & progression
-    │   ├── modals.html         # Modales génériques & modale IA
+    │   ├── header.html         # Barre de navigation ATLAS & Widget Pomodoro
+    │   ├── modals.html         # Modales génériques & Modale IA
     │   └── workbench.html      # Modal Espace de Travail scindé
     └── layout/
         └── base.html           # Layout HTML5 de base
@@ -165,23 +162,53 @@ PCEM1/
 
 ---
 
+## 🛠️ Configuration des Manifests de Filières (`manifest.json`)
+
+Chaque sous-dossier de filière dans `source/Original/<Nom_Filiere>/` peut optionnellement contenir un fichier `manifest.json` définissant la structure, les coefficients et les sessions d'examen :
+
+```json
+{
+  "program": "Bac Science 2026",
+  "default_semester": "Trimestre 1",
+  "exam_sessions": [
+    {
+      "id": "session_bac",
+      "name": "Examen National du Baccalauréat",
+      "target_date": "2026-06-08T08:00:00Z"
+    }
+  ],
+  "curriculum": {
+    "Mathématiques": {
+      "coeff": 4,
+      "hours": 5,
+      "aliases": ["math", "maths"],
+      "subjects": {"Analyse": 3, "Géométrie": 2}
+    }
+  }
+}
+```
+
+*Note : Si aucun `manifest.json` n'est présent, ATLAS applique un mode **Zero-Config** en déduisant automatiquement la taxonomie à partir des répertoires (`<Filière>/<Niveau>/<Module>/<Section>/<Fichier>`).*
+
+---
+
 ## 🛠️ Variables d'Environnement
 
-Créez un fichier `.env` à la racine du projet basiques sur le modèle ci-dessous :
+Créez un fichier `.env` à la racine du projet :
 
 | Variable | Requis | Description | Exemple |
 |---|---|---|---|
 | `GEMINI_API_KEY` | **Oui** | Clé API Google AI Studio | `AIzaSy...` |
-| `GEMINI_MODELS` | **Oui** | Chaîne de repli du Circuit Breaker | `gemini-3.1-flash-lite,gemma-4-31b-it,gemma-4-26b-a4b-it` |
-| `DATABASE_URL` | **Oui** | Chaîne PostgreSQL Neon (Utiliser `-pooler`) | `postgresql://user:pass@ep-name-pooler.region.aws.neon.tech/neondb?sslmode=require` |
+| `GEMINI_MODELS` | **Oui** | Chaîne de repli du Circuit Breaker | `gemini-2.5-flash,gemini-2.5-pro,gemma-4-31b-it` |
+| `DATABASE_URL` | **Oui** | Chaîne PostgreSQL Neon Pooled (`-pooler`) | `postgresql://user:pass@ep-name-pooler.region.aws.neon.tech/neondb?sslmode=require` |
 | `R2_PUBLIC_URL` | **Oui** | Domaine public CDN Cloudflare R2 | `https://pub-xxxxxx.r2.dev` |
-| `R2_ACCOUNT_ID` | Non* | ID de compte Cloudflare (pour script uploader) | `ee06704270b5c49d3941a5c7c41a78cb` |
+| `R2_ACCOUNT_ID` | Non* | ID de compte Cloudflare (Uploader) | `ee06704270b5c49d3...` |
 | `R2_ACCESS_KEY_ID` | Non* | Clé d'accès S3 API Cloudflare | `f5f8541223c6ec0...` |
 | `R2_SECRET_ACCESS_KEY` | Non* | Clé secrète S3 API Cloudflare | `77c0839e6e816286...` |
 | `R2_BUCKET_NAME` | Non* | Nom du bucket R2 | `pcem1-assets` |
 | `PORT` | Non | Port d'écoute du serveur web | `5000` |
 
-*\* Requis uniquement lors de l'exécution du script `scripts/upload_to_r2.py`.*
+*\* Requis uniquement pour l'exécution du script `scripts/upload_to_r2.py`.*
 
 ---
 
@@ -194,91 +221,87 @@ cd pcem1-roadmap
 ```
 
 ### 2. Lancement Automatisé (Recommandé)
-Le projet intègre un orchestrateur auto-réparateur (`run.py`) qui configure automatiquement l'environnement virtuel `.venv`, installe les dépendances requises, détecte les ports libres et lance le serveur avec ouverture automatique de Chrome :
+Le script `run.py` configure automatiquement l'environnement virtuel `.venv`, valide les dépendances et lance le serveur avec auto-recompilation :
 
 ```bash
 python3 run.py
 ```
 
-### 3. Installation Manuelle
-Si vous préférez exécuter l'application manuellement :
+### 3. Exécution Manuelle du Pipeline de Crawl
+Pour traiter vos dossiers déposés dans `source/Original/` et reconcilier la base Neon :
 
 ```bash
-# Créer et activer l'environnement virtuel
-python3 -m venv .venv
-source .venv/bin/activate  # Sur Linux/macOS
-# .venv\Scripts\activate   # Sur Windows
-
-# Installer les dépendances
-pip install -r requirements.txt
-
-# Lancer l'application Flask
-python3 app.py
+# Lancer le crawler dynamique & la compression PDF
+python3 services/organizer.py
 ```
-
-L'application sera accessible sur `http://127.0.0.1:5000`.
 
 ---
 
-## 🗄️ Migration des Données & Upload d'Assets
+## 🗄️ Differential Sync & Deploy CDN Cloudflare R2
 
-### 1. Migration des Données Utilisateur (SQLite vers Neon)
-Si vous disposez d'un fichier SQLite local legacy `pcem1_roadmap.db`, migrez vos logs d'étude et notes vers Neon PostgreSQL en une commande :
+### 1. Synchronisation Différentielle vers Cloudflare R2
+Transférez vos fichiers traités depuis `source/Processed/` vers votre bucket Cloudflare R2 avec saut automatique des fichiers déjà présents :
 
 ```bash
-python scripts/migrate_sqlite_to_neon.py
+# Transférer tout le catalogue Processed
+python3 scripts/upload_to_r2.py
+
+# Ou cibler uniquement une filière spécifique
+python3 scripts/upload_to_r2.py LSI2
 ```
 
-### 2. Upload Bulk des Fichiers vers Cloudflare R2
-Pour transférer automatiquement le dossier local `source/` (comprenant les 453 fichiers PDF/MP4) vers votre bucket Cloudflare R2 sans subir la limite des 100 fichiers du tableau de bord web :
+### 2. Alignement des URLs CDN en Base de Données
+Convertissez de façon idempotente les chemins locaux de la base PostgreSQL vers votre domaine Cloudflare R2 :
 
 ```bash
-python scripts/upload_to_r2.py
+python3 scripts/update_r2_urls.py
 ```
 
-### 3. Alignement des URLs CDN en Base de Données
-Pour mettre à jour tous les chemins relatifs en base de données PostgreSQL afin qu'ils pointent vers votre domaine Cloudflare R2 :
+### 3. Réinitialisation Complète de la Base (Clean Slate)
+Pour supprimer et recréer les tables PostgreSQL à neuf :
 
 ```bash
-python scripts/update_r2_urls.py
+python3 scripts/reset_db.py --force
+```
+
+---
+
+## ⚡ Dependency Versions
+
+Toutes les dépendances de production sont rigoureusement verrouillées dans `requirements.txt` :
+
+```text
+Flask==3.1.3
+google-genai==2.14.0
+Jinja2==3.1.6
+python-dotenv==1.1.1
+PyMuPDF==1.27.2.3
+flask-sock==0.7.0
+psycopg2-binary==2.9.9
+gunicorn==21.2.0
+boto3==1.28.57
 ```
 
 ---
 
 ## 🚀 Déploiement en Production (Render)
 
-L'application est préconfigurée pour un déploiement continu sur **Render.com** :
-
-1. Créez un nouveau **Web Service** sur [Render](https://render.com/) et connectez votre dépôt GitHub.
-2. Définissez les paramètres de build suivants :
+1. Créez un **Web Service** sur [Render](https://render.com/) et reliez votre dépôt GitHub.
+2. Définissez les paramètres :
    - **Environment :** `Python 3`
    - **Build Command :** `pip install -r requirements.txt`
    - **Start Command :** `gunicorn --workers 2 --threads 4 --timeout 120 app:app`
-3. Ajoutez les variables d'environnement suivantes dans le tableau de bord Render :
-   - `DATABASE_URL` = *(Votre URL PostgreSQL Neon Pooled avec `-pooler`)*
-   - `GEMINI_API_KEY` = *(Votre clé API Google AI Studio)*
-   - `R2_PUBLIC_URL` = *(Votre URL publique Cloudflare R2)*
-   - `PYTHON_VERSION` = `3.12.2`
-
----
-
-## ⚡ Optimisations de Performance & Sécurité
-
-- ⚡ **Neon PgBouncer Connection Pooler :** Réduit la latence des requêtes SQL de ~250ms à <10ms en maintenant les connexions SSL/TLS chaudes.
-- ⚡ **Mises à jour Optimistes de l'UI :** Les clics sur les boutons de maîtrise dans le Workbench mettent à jour le DOM instantanément (<10ms) pendant que la requête réseau s'exécute de façon asynchrone en arrière-plan.
-- 🔒 **Garde-Fou Crawler en Cloud :** `services/organizer.py` détecte automatiquement les environnements cloud (`RENDER=true`) et contourne le scan de disque local afin d'éviter la suppression involontaire de la base de données distante.
-- 🔒 **Décodage & Redirection Sécurisée :** `app.py` intègre un middleware d'unquoting d'URLs (`unquote()`) pour intercepter et rediriger de manière fluide les flux multimédias vers le CDN Cloudflare R2.
+3. Renseignez vos variables d'environnement (`DATABASE_URL`, `GEMINI_API_KEY`, `R2_PUBLIC_URL`, `PYTHON_VERSION=3.12.2`).
 
 ---
 
 ## 👤 Auteur & Licence
 
 - **Auteur :** Mouhamed Gharsallah ([@Med-Gh-TN](https://github.com/Med-Gh-TN))
-- **Établissement :** Faculté de Médecine de Tunis (FMT)
+- **Établissement :** Faculté de Médecine de Tunis (FMT) / ATLAS Platform
 - **Licence :** Distribué sous la licence [MIT](LICENSE).
 
 <div align="center">
   <br/>
-  <sub>Projet développé avec passion pour réussir le concours du PCEM1. 🇹🇳🩺</sub>
+  <sub>Développé avec passion pour démocratiser et optimiser l'apprentissage académique en Tunisie. 🇹🇳🎓</sub>
 </div>
-```
